@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#f7f4ef">
+<title>ThePremiumBarber — Rezerwacja</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKIHdpZHRoPSIzMDAuMDAwMDAwcHQiIGhlaWdodD0iMzAwLjAwMDAwMHB0IiB2aWV3Qm94PSIwIDAgMzAwLjAwMDAwMCAzMDAuMDAwMDAwIgogcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCI+Cgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwzMDAuMDAwMDAwKSBzY2FsZSgwLjEwMDAwMCwtMC4xMDAwMDApIgpmaWxsPSIjMDAwMDAwIiBzdHJva2U9Im5vbmUiPgo8cGF0aCBkPSJNMTM5NCAyODk5IGMtMjk2IC0yNiAtNTg4IC0xNjUgLTgwOSAtMzg0IC0yNDMgLTI0MiAtMzc1IC01NjQgLTM3NQotOTIwIDAgLTE0NCAxNSAtMjUyIDU1IC0zODkgOTcgLTMzNSAzNjEgLTY0MSA2ODMgLTc5MiAzNCAtMTYgNjIgLTM1IDYyIC00MQowIC0yMiA0MSAtNTUgNjEgLTUwIDEzIDQgMjUgLTYgNDMgLTM3IDI0IC00MSA5OCAtMTE2IDExNCAtMTE2IDQgMCAxNSA5IDI1CjIwIDkgMTEgMjAgMjAgMjQgMjAgNSAwIDQyIC0zMiA4MyAtNzAgNDEgLTM4IDkyIC04MiAxMTIgLTk2IGwzNyAtMjYgMzMgMjMKYzE4IDEzIDY3IDUwIDEwOCA4MiA5MCA3MiAxMTYgODUgMTMyIDY5IDcgLTcgMjAgLTEyIDI5IC0xMiAxOSAwIDg0IDY3IDExOAoxMjMgMTcgMjggMjYgMzUgMzYgMjcgMTggLTE1IDM5IC0zIDUyIDI5IDggMjIgMzEgNDAgOTkgNzUgNDMyIDIyMyA3MDUgNjczCjcwNyAxMTYxIDAgMjE2IC0zNSAzNzIgLTEyNyA1NjAgLTczIDE0OCAtMTU5IDI2NyAtMjc2IDM3OSAtMjg0IDI3MiAtNjQwIDM5OQotMTAyNiAzNjV6IG0zMDEgLTE2MyBjMzE5IC01NyA2MDEgLTIzOCA3NzcgLTUwMCAxMDEgLTE1MSAxNDggLTI2MyAxODQgLTQzOQoyMyAtMTE2IDE1IC0zNTkgLTE2IC00NzIgLTg1IC0zMTIgLTI4NCAtNTgwIC01MzYgLTcyNSAtNjkgLTQwIC03MSAtNDAgLTExMAotMjYgLTIxIDcgLTkxIDQwIC0xNTQgNzIgbC0xMTUgNTkgLTE1MCAzIGMtODIgMiAtMTcxIDQgLTE5NyA0IC0zOSAxIC03MSAtMTEKLTE4NSAtNjcgLTE5MCAtOTMgLTE4NCAtOTIgLTI2MCAtNDkgLTgxIDQ1IC0xOTUgMTM3IC0yNjYgMjE0IC0yMDcgMjIzIC0zMDcKNDgzIC0zMDcgNzk1IDAgMjk4IDk5IDU0OCAzMDkgNzc2IDE3NSAxOTIgNDU3IDMzNSA3MTEgMzYyIDg3IDkgMjQyIDYgMzE1IC03eiIvPgo8cGF0aCBkPSJNMTI5NiAyNDcwIGMtMzcgLTUgLTkwIC0xNCAtMTE3IC0yMCAtNDkgLTEyIC0xMzkgLTY0IC0xMzkgLTgxIDAKLTE3IC02MCAtNDAgLTE1NyAtNTkgLTExMyAtMjQgLTEzNSAtMzYgLTE2MyAtOTAgLTM3IC03MiAtNDUgLTE4MiAtMzEgLTQwMAoxMyAtMjA2IDIyIC0yODIgMzMgLTI2NSAzIDYgMTQgNDYgMjMgOTAgMjggMTQxIDUzIDIxMCA5MyAyNTkgODAgMTAwIDE5NyAxMjUKNDEyIDg2IDEwNiAtMjAgMTc2IC0yNCA0NjAgLTMwIDM0MyAtNyAzNzYgLTExIDQzNSAtNTEgNDggLTMzIDcyIC03OSAxMDUKLTE5NSAxNiAtNTkgMzIgLTEwOSAzNCAtMTEyIDMgLTIgMTUgMjkgMjggNjkgMTkgNjMgMjMgOTYgMjMgMjE0IDAgMTIxIC0zCjE0OSAtMjMgMjA4IC0yMyA2NSAtNzggMTQ3IC0xMzEgMTk0IC03NyA2OCAtMjU4IDEzNiAtNDQxIDE2NyAtMTE3IDE5IC0zNTIKMjggLTQ0NCAxNnoiLz4KPHBhdGggZD0iTTEzMjYgMTIwNCBjLTE3IC05IC02MyAtNDUgLTEwNCAtODAgLTQzIC0zNiAtOTEgLTY4IC0xMTIgLTc0IC00NgotMTIgLTEyMyAxIC0xNTAgMjUgLTI0IDIyIC0yNiA2IC01IC0zNCA4IC0xNyAzNCAtMzkgNjIgLTUyIDQxIC0yMSA2MyAtMjQKMTUzIC0yNCAxMjAgMCAxODcgMTcgMjc4IDcyIGw1NyAzNSA4MCAtNDAgYzExNyAtNTkgMTQ3IC02NyAyNzAgLTY3IDk0IDAgMTE2CjMgMTUyIDIyIDQyIDIzIDczIDU3IDczIDgwIDAgMTAgLTcgOSAtMjYgLTMgLTM0IC0yMyAtMTExIC0yMSAtMTcwIDUgLTI1IDExCi02OSA0MiAtOTcgNjcgLTczIDY2IC0xMjUgODcgLTE5NSA4MCAtNzggLTggLTg3IC04IC0xNjcgLTEgLTU1IDQgLTc2IDIgLTk5Ci0xMXoiLz4KPC9nPgo8L3N2Zz4K">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:'Courier New',monospace; background:#f7f4ef; color:#2c2418; min-height:100vh; min-height:100dvh; }
+  @keyframes fadeSlideIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes scaleIn { from{opacity:0;transform:scale(.5)} to{opacity:1;transform:scale(1)} }
+  ::selection { background:#8b6f47; color:#fff; }
+  input::placeholder { color:#b5aa9a; }
+  input:focus { border-color:#8b6f47 !important; outline:none; }
+  button { -webkit-appearance:none; }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<div id="errbox" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#fde;border-top:2px solid #c45;padding:12px;font-family:monospace;font-size:11px;color:#900;max-height:40vh;overflow:auto;"></div>
+<script>
+window._errs=[];
+window.onerror=function(m,s,l,c,e){
+  window._errs.push(m+" (L"+l+":"+c+")");
+  var box=document.getElementById("errbox");
+  box.style.display="block";
+  box.innerHTML="<b>ERRORS:</b><br>"+window._errs.join("<br>");
+  return false;
+};
+window.addEventListener("unhandledrejection",function(e){
+  window._errs.push("Promise: "+(e.reason?.message||e.reason||"?"));
+  var box=document.getElementById("errbox");
+  box.style.display="block";
+  box.innerHTML="<b>ERRORS:</b><br>"+window._errs.join("<br>");
+});
+</script>
+<script type="text/babel">
+const { useState, useEffect, useCallback, useMemo } = React;
+
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw_NX6PvP7-8YQLJD9d--o1OLd0dXCd_-3-WX-gjaWOgz278rEhpl-BZWVN3pwvVkrF/exec";
+
+async function apiCall(params) {
+  const url = new URL(GOOGLE_SCRIPT_URL);
+  Object.entries(params).forEach(([k,v]) => url.searchParams.append(k,v));
+  try {
+    const res = await Promise.race([
+      fetch(url.toString()),
+      new Promise((_,reject) => setTimeout(() => reject(new Error("timeout")), 10000))
+    ]);
+    const text = await res.text();
+    try { return JSON.parse(text); } catch(e) { return {}; }
+  } catch(e) {
+    console.error("API:", e.message);
+    return {};
+  }
+}
+
+const BARBERS = [{ id:"pawel", name:"Paweł", avatar:"P" }, { id:"blazej", name:"Błażej", avatar:"B" }];
+const SERVICES = [{ id:"classic", name:"Strzyżenie klasyczne", duration:30, icon:"✂" }, { id:"combo", name:"Strzyżenie klasyczne + zarost", duration:45, icon:"💈" }, { id:"combo_wax", name:"Strzyżenie klasyczne + broda", duration:60, icon:"🪮" }];
+const WORK_START=8, WORK_END=20, STANDARD_START=9*60, STANDARD_END=18*60;
+
+function getEasterDate(y){const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return new Date(y,mo-1,da);}
+function addDays(d,n){const r=new Date(d);r.setDate(r.getDate()+n);return r;}
+function getPolishHolidays(y){const e=getEasterDate(y);return[{date:new Date(y,0,1),name:"Nowy Rok"},{date:new Date(y,0,6),name:"Trzech Króli"},{date:new Date(y,4,1),name:"Święto Pracy"},{date:new Date(y,4,3),name:"Konstytucja 3 Maja"},{date:new Date(y,7,15),name:"Wniebowzięcie NMP"},{date:new Date(y,10,1),name:"Wszystkich Świętych"},{date:new Date(y,10,11),name:"Święto Niepodległości"},{date:new Date(y,11,25),name:"Boże Narodzenie"},{date:new Date(y,11,26),name:"Drugi dzień Bożego Narodzenia"},{date:e,name:"Wielkanoc"},{date:addDays(e,1),name:"Poniedziałek Wielkanocny"},{date:addDays(e,49),name:"Zielone Świątki"},{date:addDays(e,60),name:"Boże Ciało"},{date:addDays(e,-47),name:"Tłusty Czwartek"},{date:addDays(e,-46),name:"Ostatki"},{date:addDays(e,-2),name:"Wielki Piątek"},{date:addDays(e,-1),name:"Wielka Sobota"},{date:new Date(y,11,24),name:"Wigilia"},{date:new Date(y,11,31),name:"Sylwester"}];}
+function isHoliday(d){return getPolishHolidays(d.getFullYear()).find(h=>h.date.toDateString()===d.toDateString())||null;}
+function getWorkHours(d){return d.getDay()===6?{start:480,end:840}:{start:WORK_START*60,end:WORK_END*60};}
+
+function generateSlots(date,service,barberId,bookings,excludeId,blocked){
+  const slots=[],dur=service.duration,{start:wS,end:wE}=getWorkHours(date),now=new Date(),ds=date.toDateString();
+  const isT=date.getFullYear()===now.getFullYear()&&date.getMonth()===now.getMonth()&&date.getDate()===now.getDate();
+  const bl=(blocked||[]).filter(b=>b.date===ds&&(b.barberId===barberId||b.barberId==="all"));
+  for(let m=wS;m<wE;m+=15){
+    if(m+dur>wE)continue; if(isT&&m<=now.getHours()*60+now.getMinutes())continue;
+    if(bl.some(b=>b.type==="fullday"))continue; if(bl.some(b=>b.type==="hours"&&m<b.endMin&&m+dur>b.startMin))continue;
+    if(!bookings.some(b=>b.id!==excludeId&&b.barberId===barberId&&b.date===ds&&m<b.endMin&&m+dur>b.startMin)){
+      const h=Math.floor(m/60),mi=m%60;
+      slots.push({hour:h,minute:mi,label:`${String(h).padStart(2,"0")}:${String(mi).padStart(2,"0")}`,startMin:m});
+    }
+  }
+  return slots;
+}
+
+function getWeekDays(s){const days=[],d=new Date(s);d.setHours(0,0,0,0);for(let i=0;i<7;i++){const day=new Date(d);day.setDate(d.getDate()+i);days.push(day);}return days;}
+const DAY_NAMES_PL=["Nd","Pn","Wt","Śr","Cz","Pt","Sb"];
+const MONTH_NAMES_PL=["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia"];
+const DAY_NAMES_FULL_PL=["niedziela","poniedziałek","wtorek","środa","czwartek","piątek","sobota"];
+function formatDatePL(d){try{const x=typeof d==="string"?new Date(d):d;if(!x||isNaN(x.getTime()))return "—";return `${DAY_NAMES_FULL_PL[x.getDay()]}, ${x.getDate()} ${MONTH_NAMES_PL[x.getMonth()]} ${x.getFullYear()}`;}catch(e){return "—";}}
+function formatDateShort(d){try{const x=typeof d==="string"?new Date(d):d;if(!x||isNaN(x.getTime()))return "—";return `${x.getDate()} ${MONTH_NAMES_PL[x.getMonth()].slice(0,3)}`;}catch(e){return "—";}}
+function minToLabel(m){const v=Number(m)||0;return `${String(Math.floor(v/60)).padStart(2,"0")}:${String(v%60).padStart(2,"0")}`;}
+function timeUntil(dateStr,startMin){try{const d=new Date(dateStr);if(isNaN(d.getTime()))return{label:"—",past:true};d.setHours(Math.floor((startMin||0)/60),(startMin||0)%60,0,0);const diff=d-new Date();if(diff<0)return{label:"przeszła",past:true};const mins=Math.floor(diff/60000);if(mins<60)return{label:`za ${mins} min`,past:false};const hrs=Math.floor(mins/60);if(hrs<24)return{label:`za ${hrs} godz.`,past:false};return{label:`za ${Math.floor(hrs/24)} dn.`,past:false};}catch(e){return{label:"—",past:true};}}
+function isTodayDate(ds){try{return ds&&new Date(ds).toDateString()===new Date().toDateString();}catch(e){return false;}}
+function formatPhone(v){const d=v.replace(/\D/g,"");if(d.startsWith("48")&&d.length>2){const l=d.slice(2);return "+48 "+[l.slice(0,3),l.slice(3,6),l.slice(6,9)].filter(Boolean).join(" ");}if(d.length<=3)return d;return[d.slice(0,3),d.slice(3,6),d.slice(6,9)].filter(Boolean).join(" ");}
+
+const C={bg:"#f7f4ef",card:"#ffffff",border:"#e2ddd5",borderHover:"#8b6f47",text:"#2c2418",textSoft:"#8a7e6f",textMuted:"#b5aa9a",accent:"#8b6f47",accentGrad:"linear-gradient(135deg, #8b6f47, #a6884e)",accentLight:"rgba(139,111,71,0.08)",accentMid:"rgba(139,111,71,0.15)",danger:"#c45",dangerBg:"rgba(204,68,85,0.06)",dangerBorder:"rgba(204,68,85,0.2)",white:"#fff",success:"rgba(60,150,60,0.12)",successBorder:"rgba(60,150,60,0.3)",successText:"#3a8a3a",holiday:"#7b5ea7",holidayBg:"rgba(123,94,167,0.10)",holidayBorder:"rgba(123,94,167,0.35)",info:"#4a90b8",infoBg:"rgba(74,144,184,0.08)",infoBorder:"rgba(74,144,184,0.25)",sunday:"#c0392b",sundayBg:"rgba(192,57,43,0.08)",sundayBorder:"rgba(192,57,43,0.25)"};
+const inputStyle={width:"100%",padding:"14px 18px",background:C.white,border:`1px solid ${C.border}`,borderRadius:8,color:C.text,fontSize:15,fontFamily:"'Courier New', monospace",outline:"none",boxSizing:"border-box",transition:"border-color 0.3s ease"};
+const goldBtnStyle={width:"100%",padding:"16px",background:C.accentGrad,border:"none",borderRadius:8,color:C.white,fontSize:12,letterSpacing:3,fontWeight:700,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Courier New', monospace",transition:"all 0.3s ease"};
+const outlineBtnStyle={width:"100%",padding:"16px",background:"transparent",border:`1px solid ${C.accent}`,borderRadius:8,color:C.accent,fontSize:12,letterSpacing:3,fontWeight:700,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Courier New', monospace",transition:"all 0.3s ease"};
+const dangerBtnStyle={...outlineBtnStyle,borderColor:C.danger,color:C.danger};
+const navBtnStyle={background:"none",border:`1px solid ${C.border}`,borderRadius:6,color:C.textSoft,width:36,height:36,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",fontSize:20,fontFamily:"inherit",transition:"all 0.2s ease"};
+const cardStyle={background:C.card,border:`1px solid ${C.border}`,borderRadius:10,padding:"18px 24px",cursor:"pointer",transition:"all 0.3s ease",color:C.text,fontFamily:"'Courier New', monospace",textAlign:"left",width:"100%",boxShadow:"0 1px 3px rgba(0,0,0,0.04)"};
+
+function BarberBookingApp(){
+  const [view,setView]=useState("booking");
+  const [step,setStep]=useState(0);
+  const [selectedBarber,setSelectedBarber]=useState(null);
+  const [selectedService,setSelectedService]=useState(null);
+  const [selectedDate,setSelectedDate]=useState(null);
+  const [selectedSlot,setSelectedSlot]=useState(null);
+  const [weekStart,setWeekStart]=useState(()=>{const d=new Date();d.setHours(0,0,0,0);return d;});
+  const [clientName,setClientName]=useState("");
+  const [clientPhone,setClientPhone]=useState("");
+  const [smsSent,setSmsSent]=useState(false);
+  const [confirmed,setConfirmed]=useState(null);
+  const [animKey,setAnimKey]=useState(0);
+  const [bookings,setBookings]=useState([]);
+  const [expandedBooking,setExpandedBooking]=useState(null);
+  const [cancelConfirmId,setCancelConfirmId]=useState(null);
+  const [rescheduleBooking,setRescheduleBooking]=useState(null);
+  const [rescheduleDate,setRescheduleDate]=useState(null);
+  const [rescheduleSlot,setRescheduleSlot]=useState(null);
+  const [rescheduleWeekStart,setRescheduleWeekStart]=useState(()=>{const d=new Date();d.setHours(0,0,0,0);return d;});
+  const [rescheduleStep,setRescheduleStep]=useState(0);
+  const [rescheduleBarber,setRescheduleBarber]=useState(null);
+  const [outsideHoursWarning,setOutsideHoursWarning]=useState(null);
+  const [holidayWarning,setHolidayWarning]=useState(null);
+  const [loading,setLoading]=useState(true);
+  const [syncing,setSyncing]=useState(false);
+  const [calendarDate,setCalendarDate]=useState(()=>{const d=new Date();d.setHours(0,0,0,0);return d;});
+  const [calendarWeekStart,setCalendarWeekStart]=useState(()=>{const d=new Date();d.setHours(0,0,0,0);return d;});
+  const [searchQuery,setSearchQuery]=useState("");
+  const [manageFilter,setManageFilter]=useState("upcoming");
+  const [manageShowCount,setManageShowCount]=useState(20);
+  const [repeatInterval,setRepeatInterval]=useState(null); // null | 2 | 3 | 4 (weeks)
+  const [repeatCount,setRepeatCount]=useState(3);
+  const [repeatBookings,setRepeatBookings]=useState([]);
+  const [repeatSyncing,setRepeatSyncing]=useState(false);
+  const [statsPeriod,setStatsPeriod]=useState("month"); // "week" | "month" | "all"
+  const [blockedSlots,setBlockedSlots]=useState(()=>{try{return JSON.parse(localStorage.getItem("tpb_blocked")||"[]")}catch(e){return[];}});
+  const [adminAuthed,setAdminAuthed]=useState(false);
+  const [pinInput,setPinInput]=useState("");
+  const [pinError,setPinError]=useState(false);
+  const [blockBarber,setBlockBarber]=useState("all");
+  const [blockDate,setBlockDate]=useState(()=>{const d=new Date();d.setHours(0,0,0,0);return d;});
+  const [blockWeekStart,setBlockWeekStart]=useState(()=>{const d=new Date();d.setHours(0,0,0,0);return d;});
+  const [blockType,setBlockType]=useState("fullday");
+  const [blockFromH,setBlockFromH]=useState("08");
+  const [blockFromM,setBlockFromM]=useState("00");
+  const [blockToH,setBlockToH]=useState("20");
+  const [blockToM,setBlockToM]=useState("00");
+  const [cancelledIds,setCancelledIds]=useState(()=>{try{return JSON.parse(localStorage.getItem("tpb_cancelled")||"[]")}catch(e){return[];}});
+  const ADMIN_PIN="0000";
+
+  useEffect(()=>{localStorage.setItem("tpb_blocked",JSON.stringify(blockedSlots));},[blockedSlots]);
+  useEffect(()=>{const now=Date.now();localStorage.setItem("tpb_cancelled",JSON.stringify(cancelledIds.filter(c=>now-c.ts<86400000)));},[cancelledIds]);
+
+  const weekDays=getWeekDays(weekStart);
+  const rescheduleWeekDays=getWeekDays(rescheduleWeekStart);
+
+  const loadBookings=useCallback(async()=>{
+    if(GOOGLE_SCRIPT_URL==="TUTAJ_WKLEJ_URL"){setLoading(false);return;}
+    try{
+      const data=await apiCall({action:"getAll"});
+      if(data.bookings){
+        setBookings(data.bookings.map(b=>{
+          let svc=null;
+          try{svc=typeof b.service==="string"?JSON.parse(b.service):b.service;}catch(e){svc=null;}
+          if(!svc||!svc.id){svc=SERVICES.find(s=>s.id===(b.serviceId||b.service_id))||SERVICES[0];}
+          const sm=Number(b.startMin)||0,em=Number(b.endMin)||0;
+          let dateStr=b.date,datePLStr=b.datePL;
+          if(dateStr&&dateStr.includes("T")){const d=new Date(dateStr);dateStr=d.toDateString();datePLStr=formatDatePL(d);}
+          if(datePLStr&&datePLStr.includes("T"))datePLStr=formatDatePL(new Date(datePLStr));
+          if(!datePLStr||datePLStr.includes("T")||datePLStr.includes("Invalid"))try{datePLStr=formatDatePL(new Date(dateStr));}catch(e){datePLStr=dateStr;}
+          let slot=b.slotLabel;
+          if(slot&&slot.includes("1899")){const t=new Date(slot);slot=`${String(t.getUTCHours()).padStart(2,"0")}:${String(t.getUTCMinutes()).padStart(2,"0")}`;}
+          else if((!slot||slot.includes("T"))&&!isNaN(sm))slot=minToLabel(sm);
+          return{...b,service:svc,startMin:sm,endMin:em,date:dateStr,datePL:datePLStr,slotLabel:slot};
+        }).filter(b=>{const c=JSON.parse(localStorage.getItem("tpb_cancelled")||"[]");return!c.some(x=>x.id===b.id);}));
+      }
+    }catch(e){console.error("Błąd ładowania:",e);}
+    setLoading(false);
+  },[]);
+
+  useEffect(()=>{loadBookings();},[loadBookings]);
+  useEffect(()=>{setAnimKey(k=>k+1);},[step,view]);
+
+  const isMobile=typeof navigator!=="undefined"&&/iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const buildSmsHref=(phone,msg)=>{if(!phone)return null;const clean=String(phone).replace(/\s/g,"");const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&navigator.maxTouchPoints>0);const sep=isIOS?"&":"?";return `sms:${clean}${sep}body=${encodeURIComponent(msg)}`;};
+  const [pendingSms,setPendingSms]=useState(null);
+  const [smsCopied,setSmsCopied]=useState(false);
+  const copyToClipboard=(text)=>{try{navigator.clipboard.writeText(text).then(()=>setSmsCopied(true)).catch(()=>{const ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);setSmsCopied(true);});}catch(e){}};
+  const buildConfirmMsg=(b)=>`ThePremiumBarber - potwierdzenie:\n${b.barberName||""}, ${b.service?.name||""}\n${b.datePL||""}, godz. ${b.slotLabel||""}\nDo zobaczenia!`;
+  const buildCancelMsg=(b)=>`ThePremiumBarber - odwołanie:\nWizyta u ${b.barberName||""} (${b.service?.name||""})\n${b.datePL||""}, godz. ${b.slotLabel||""}\nzostała odwołana.`;
+  const buildRescheduleMsg=(b,oldPL,oldS)=>`ThePremiumBarber - zmiana terminu:\n${b.barberName||""}, ${b.service?.name||""}\nPoprzednio: ${oldPL||""}, ${oldS||""}\nNowy termin: ${b.datePL||""}, godz. ${b.slotLabel||""}\nDo zobaczenia!`;
+  const isOutsideStandard=(slot,date)=>{const d=date||selectedDate;if(d&&d.getDay()===6)return false;return slot.startMin<STANDARD_START||slot.startMin>=STANDARD_END;};
+
+  const getOccupancy=(date,barberId)=>{const{start,end}=getWorkHours(date);const tot=end-start;if(!tot)return 0;const busy=bookings.filter(b=>b.barberId===barberId&&b.date===date.toDateString()).reduce((s,b)=>s+(b.endMin-b.startMin),0);const ds=date.toDateString();const bl=blockedSlots.filter(b=>b.date===ds&&(b.barberId===barberId||b.barberId==="all"));if(bl.some(b=>b.type==="fullday"))return 1;const blMin=bl.filter(b=>b.type==="hours").reduce((s,b)=>s+(b.endMin-b.startMin),0);return(busy+blMin)/tot;};
+  const getDayOccupancy=(date)=>(getOccupancy(date,"pawel")+getOccupancy(date,"blazej"))/2;
+  const occupancyColor=(occ,date)=>{if(date&&isHoliday(date))return{bg:C.holidayBg,border:C.holidayBorder,dot:C.holiday,label:isHoliday(date).name};if(occ>=0.65)return{bg:"rgba(220,60,60,0.12)",border:"#d66",dot:"#d44",label:"Mało miejsc"};if(occ>=0.3)return{bg:"rgba(220,180,40,0.12)",border:"#ca0",dot:"#b90",label:"Średnio"};if(occ>0)return{bg:"rgba(60,170,60,0.12)",border:"#4a4",dot:"#3a3",label:"Dużo miejsc"};return null;};
+  const getBarberBookingsForDate=(date,bid)=>bookings.filter(b=>b.barberId===bid&&b.date===date.toDateString()).sort((a,b)=>a.startMin-b.startMin);
+  const calendarWeekDays=getWeekDays(calendarWeekStart);
+
+  const sortedBookings=useMemo(()=>{
+    const now=new Date();
+    let f=bookings.filter(b=>b&&b.date&&b.id);
+    if(searchQuery.trim()){const q=searchQuery.toLowerCase();f=f.filter(b=>String(b.clientName||"").toLowerCase().includes(q)||String(b.clientPhone||"").includes(q)||String(b.barberName||"").toLowerCase().includes(q));}
+    if(manageFilter==="upcoming")f=f.filter(b=>{const d=new Date(b.date);if(isNaN(d.getTime()))return false;d.setHours(Math.floor((b.endMin||0)/60),(b.endMin||0)%60);return d>=now;});
+    else if(manageFilter==="past")f=f.filter(b=>{const d=new Date(b.date);if(isNaN(d.getTime()))return false;d.setHours(Math.floor((b.endMin||0)/60),(b.endMin||0)%60);return d<now;});
+    f.sort((a,b)=>{const da=(new Date(a.date).getTime()||0)+(a.startMin||0),db=(new Date(b.date).getTime()||0)+(b.startMin||0);return manageFilter==="past"?db-da:da-db;});
+    return f;
+  },[bookings,searchQuery,manageFilter]);
+
+  const upcomingCount=useMemo(()=>{const now=new Date();return bookings.filter(b=>{if(!b||!b.date)return false;const d=new Date(b.date);if(isNaN(d.getTime()))return false;d.setHours(Math.floor((b.endMin||0)/60),(b.endMin||0)%60);return d>=now;}).length;},[bookings]);
+
+  const handleSlotSelect=(slot)=>{if(isOutsideStandard(slot))setOutsideHoursWarning({slot,context:"booking"});else{setSelectedSlot(slot);setStep(4);}};
+  const handleRescheduleSlotSelect=(slot)=>{if(isOutsideStandard(slot))setOutsideHoursWarning({slot,context:"reschedule"});else setRescheduleSlot(slot);};
+  const confirmOutsideHours=()=>{if(!outsideHoursWarning)return;if(outsideHoursWarning.context==="booking"){setSelectedSlot(outsideHoursWarning.slot);setStep(4);}else setRescheduleSlot(outsideHoursWarning.slot);setOutsideHoursWarning(null);};
+
+  const handleConfirm=async()=>{
+    setSyncing(true);
+    const booking={barberId:selectedBarber.id,barberName:selectedBarber.name,service:selectedService,date:selectedDate.toDateString(),datePL:formatDatePL(selectedDate),startMin:selectedSlot.startMin,endMin:selectedSlot.startMin+selectedService.duration,slotLabel:selectedSlot.label,clientName:clientName.trim(),clientPhone:clientPhone.trim()};
+    try{if(GOOGLE_SCRIPT_URL!=="TUTAJ_WKLEJ_URL"){const res=await apiCall({action:"add",barberId:booking.barberId,barberName:booking.barberName,serviceId:selectedService.id,serviceName:selectedService.name,duration:selectedService.duration,date:booking.date,datePL:booking.datePL,startMin:booking.startMin,endMin:booking.endMin,slotLabel:booking.slotLabel,clientName:booking.clientName,clientPhone:booking.clientPhone});booking.id=res.id;}else booking.id=String(Date.now());}catch(e){booking.id=String(Date.now());}
+    setBookings(prev=>[...prev,booking]);setConfirmed(booking);setSmsSent(false);setStep(5);setSyncing(false);
+  };
+
+  const handleCancel=async(id)=>{
+    const b=bookings.find(x=>x.id===id);if(!b)return;
+    setBookings(prev=>prev.filter(x=>x.id!==id));setCancelConfirmId(null);setExpandedBooking(null);
+    setCancelledIds(prev=>[...prev,{id:b.id,ts:Date.now()}]);
+    if(GOOGLE_SCRIPT_URL!=="TUTAJ_WKLEJ_URL"){setSyncing(true);try{await apiCall({action:"delete",id:b.id});}catch(e){}setSyncing(false);}
+  };
+
+  const startReschedule=(b)=>{setRescheduleBooking(b);setRescheduleBarber(b.barberId);setRescheduleDate(null);setRescheduleSlot(null);setRescheduleStep(0);const d=new Date();d.setHours(0,0,0,0);setRescheduleWeekStart(d);};
+
+  const confirmReschedule=async()=>{
+    const old={datePL:rescheduleBooking.datePL,slot:rescheduleBooking.slotLabel};
+    const newBarber=BARBERS.find(x=>x.id===rescheduleBarber)||BARBERS[0];
+    const updated={...rescheduleBooking,barberId:newBarber.id,barberName:newBarber.name,date:rescheduleDate.toDateString(),datePL:formatDatePL(rescheduleDate),startMin:rescheduleSlot.startMin,endMin:rescheduleSlot.startMin+rescheduleBooking.service.duration,slotLabel:rescheduleSlot.label};
+    setBookings(prev=>prev.map(b=>b.id===updated.id?updated:b));
+    if(GOOGLE_SCRIPT_URL!=="TUTAJ_WKLEJ_URL"){setSyncing(true);try{await apiCall({action:"update",id:updated.id,barberId:updated.barberId,barberName:updated.barberName,date:updated.date,datePL:updated.datePL,startMin:updated.startMin,endMin:updated.endMin,slotLabel:updated.slotLabel});}catch(e){}setSyncing(false);}
+    setRescheduleBooking(null);setExpandedBooking(null);
+  };
+
+  const resetBooking=()=>{setStep(0);setSelectedBarber(null);setSelectedService(null);setSelectedDate(null);setSelectedSlot(null);setClientName("");setClientPhone("");setSmsSent(false);setConfirmed(null);setRepeatInterval(null);setRepeatBookings([]);};
+
+  // ─── Recurring booking ───
+  const handleRepeatBooking=async()=>{
+    if(!confirmed||!confirmed.service||!repeatInterval||repeatCount<1)return;
+    setRepeatSyncing(true);
+    const results=[];
+    for(let i=1;i<=repeatCount;i++){
+      const nextDate=new Date(confirmed.date);
+      nextDate.setDate(nextDate.getDate()+i*repeatInterval*7);
+      if(nextDate.getDay()===0)nextDate.setDate(nextDate.getDate()+1); // skip Sunday
+      const avail=generateSlots(nextDate,confirmed.service,confirmed.barberId,
+        [...bookings,...results],null,blockedSlots);
+      const sameSlot=avail.find(s=>s.startMin===confirmed.startMin);
+      const slot=sameSlot||avail[0];
+      if(!slot){results.push({skipped:true,date:nextDate,datePL:formatDatePL(nextDate)});continue;}
+      const bk={barberId:confirmed.barberId,barberName:confirmed.barberName,service:confirmed.service,
+        date:nextDate.toDateString(),datePL:formatDatePL(nextDate),
+        startMin:slot.startMin,endMin:slot.startMin+(confirmed.service?.duration||30),
+        slotLabel:slot.label,clientName:confirmed.clientName,clientPhone:confirmed.clientPhone};
+      try{if(GOOGLE_SCRIPT_URL!=="TUTAJ_WKLEJ_URL"){
+        const res=await apiCall({action:"add",barberId:bk.barberId,barberName:bk.barberName,
+          serviceId:confirmed.service?.id||"",serviceName:confirmed.service?.name||"",duration:confirmed.service?.duration||30,
+          date:bk.date,datePL:bk.datePL,startMin:bk.startMin,endMin:bk.endMin,
+          slotLabel:bk.slotLabel,clientName:bk.clientName,clientPhone:bk.clientPhone});
+        bk.id=res.id;}else bk.id=String(Date.now()+i);
+      }catch(e){bk.id=String(Date.now()+i);}
+      results.push(bk);
+      setBookings(prev=>[...prev,bk]);
+    }
+    setRepeatBookings(results);setRepeatSyncing(false);
+  };
+
+  // ─── Stats computation ───
+  const stats=useMemo(()=>{
+    const now=new Date();
+    let filtered=[...bookings];
+    if(statsPeriod==="week"){
+      const weekAgo=new Date(now);weekAgo.setDate(weekAgo.getDate()-7);
+      filtered=filtered.filter(b=>new Date(b.date)>=weekAgo);
+    }else if(statsPeriod==="month"){
+      const monthAgo=new Date(now);monthAgo.setMonth(monthAgo.getMonth()-1);
+      filtered=filtered.filter(b=>new Date(b.date)>=monthAgo);
+    }
+    const total=filtered.length;
+    const byBarber={};BARBERS.forEach(b=>{byBarber[b.id]={name:b.name,count:0,minutes:0};});
+    const byService={};SERVICES.forEach(s=>{byService[s.id]={name:s.name,count:0};});
+    const byHour={};for(let h=WORK_START;h<WORK_END;h++)byHour[h]=0;
+    const byDay={0:0,1:0,2:0,3:0,4:0,5:0,6:0};
+    let totalMinutes=0;
+    filtered.forEach(b=>{
+      if(isNaN(b.startMin)||isNaN(b.endMin))return;
+      if(byBarber[b.barberId]){byBarber[b.barberId].count++;byBarber[b.barberId].minutes+=(b.endMin-b.startMin);}
+      if(b.service&&b.service.id&&byService[b.service.id])byService[b.service.id].count++;
+      const h=Math.floor(b.startMin/60);if(byHour[h]!==undefined)byHour[h]++;
+      const d=new Date(b.date);if(!isNaN(d.getTime()))byDay[d.getDay()]++;
+      totalMinutes+=(b.endMin-b.startMin);
+    });
+    // Peak hour
+    let peakHour=WORK_START,peakCount=0;
+    Object.entries(byHour).forEach(([h,c])=>{if(c>peakCount){peakCount=c;peakHour=Number(h);}});
+    // Peak day
+    let peakDay=1,peakDayCount=0;
+    Object.entries(byDay).forEach(([d,c])=>{if(c>peakDayCount){peakDayCount=c;peakDay=Number(d);}});
+    // Avg per day (excluding future)
+    const daysInPeriod=statsPeriod==="week"?7:statsPeriod==="month"?30:filtered.length>0?Math.max(1,Math.ceil((now-new Date(Math.min(...filtered.map(b=>new Date(b.date).getTime()))))/(86400000))):1;
+    const avgPerDay=(total/Math.max(1,daysInPeriod)).toFixed(1);
+    return{total,byBarber,byService,byHour,byDay,peakHour,peakDay,totalMinutes,avgPerDay};
+  },[bookings,statsPeriod]);
+
+  const switchView=(v)=>{
+    setView(v);
+    if(v==="booking")resetBooking();
+    if(v==="manage"){setExpandedBooking(null);setCancelConfirmId(null);setRescheduleBooking(null);setSearchQuery("");setManageFilter("upcoming");setManageShowCount(20);loadBookings();}
+    if(v==="calendar"){loadBookings();const d=new Date();d.setHours(0,0,0,0);setCalendarDate(d);setCalendarWeekStart(d);}
+    if(v==="admin"){setPinInput("");setPinError(false);}
+    if(v==="stats"){loadBookings();}
+  };
+
+  const slots=selectedService&&selectedDate&&selectedBarber?generateSlots(selectedDate,selectedService,selectedBarber.id,bookings,null,blockedSlots):[];
+  const rescheduleSlots=rescheduleBooking&&rescheduleDate&&rescheduleBarber?generateSlots(rescheduleDate,rescheduleBooking.service,rescheduleBarber,bookings,rescheduleBooking.id,blockedSlots):[];
+
+  const SelectionBreadcrumb=()=>{
+    const items=[];
+    if(selectedBarber)items.push({icon:selectedBarber.avatar,text:selectedBarber.name});
+    if(selectedService)items.push({icon:selectedService.icon,text:`${selectedService.duration} min`});
+    if(selectedDate)items.push({icon:"📅",text:formatDateShort(selectedDate)});
+    if(selectedSlot)items.push({icon:"🕐",text:`${selectedSlot.label}–${minToLabel(selectedSlot.startMin+(selectedService?.duration||0))}`});
+    if(!items.length)return null;
+    return(<div style={{display:"flex",gap:6,marginBottom:16,flexWrap:"wrap"}}>{items.map((it,i)=>(<React.Fragment key={i}><span style={{display:"inline-flex",alignItems:"center",gap:4,background:C.accentLight,border:`1px solid ${C.accentMid}`,borderRadius:20,padding:"4px 10px",fontSize:10,color:C.accent,fontWeight:600,letterSpacing:0.5}}><span style={{fontSize:11}}>{it.icon}</span> {it.text}</span>{i<items.length-1&&<span style={{color:C.textMuted,fontSize:10,alignSelf:"center"}}>›</span>}</React.Fragment>))}</div>);
+  };
+
+  const disabledBtn={background:C.border,color:C.textMuted,cursor:"not-allowed"};
+  const phoneValid=clientPhone.replace(/\D/g,"").length>=9;
+
+  return(
+    <div style={{minHeight:"100vh",background:C.bg,fontFamily:"'Courier New', monospace",color:C.text,position:"relative"}}>
+      {loading&&(<div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:"100vh",gap:16}}><div style={{fontSize:11,letterSpacing:8,color:C.accent,textTransform:"uppercase",fontWeight:700}}>ThePremiumBarber</div><div style={{fontSize:13,color:C.textSoft,letterSpacing:1}}>Ładowanie wizyt...</div></div>)}
+      {syncing&&(<div style={{position:"fixed",top:6,left:"50%",transform:"translateX(-50%)",zIndex:200,background:C.accent,color:C.white,padding:"6px 18px",borderRadius:20,fontSize:10,letterSpacing:2,fontWeight:700,textTransform:"uppercase",fontFamily:"'Courier New', monospace",boxShadow:"0 2px 12px rgba(0,0,0,0.15)"}}>Zapisywanie...</div>)}
+      {!loading&&<>
+      <div style={{position:"fixed",top:0,left:0,right:0,height:"3px",zIndex:50,background:"linear-gradient(90deg, transparent, #8b6f47, #a6884e, #8b6f47, transparent)"}}/>
+      <div style={{maxWidth:520,margin:"0 auto",padding:"32px 20px",position:"relative",zIndex:1}}>
+        <header style={{textAlign:"center",marginBottom:32}}>
+          <div style={{fontSize:11,letterSpacing:8,color:C.accent,marginBottom:8,textTransform:"uppercase",fontWeight:700}}>─── EST. 2017 ───</div>
+          <h1 style={{fontSize:32,fontFamily:"'Georgia', serif",fontWeight:400,letterSpacing:3,margin:"8px 0",color:C.text,textTransform:"uppercase"}}>ThePremiumBarber</h1>
+          <div style={{fontSize:11,letterSpacing:6,color:C.textSoft,textTransform:"uppercase"}}>{view==="booking"?"Rezerwacja":view==="manage"?"Zarządzanie wizytami":view==="calendar"?"Podgląd dnia":view==="stats"?"Statystyki":"Blokady terminów"}</div>
+          <div style={{width:60,height:1,background:C.accent,margin:"16px auto 0"}}/>
+        </header>
+
+        {GOOGLE_SCRIPT_URL==="TUTAJ_WKLEJ_URL"&&(<div style={{background:"#fff3e0",border:"1px solid #ffe0b2",borderRadius:8,padding:"12px 16px",marginBottom:20,textAlign:"center",fontSize:11,color:"#e65100",lineHeight:1.6}}>⚠️ Google Sheets nie skonfigurowane.<br/>Wklej URL skryptu w pliku HTML (<b>GOOGLE_SCRIPT_URL</b>).</div>)}
+
+        <div style={{display:"flex",marginBottom:32,borderRadius:10,overflow:"hidden",border:`1px solid ${C.border}`,background:C.card}}>
+          {[{key:"booking",label:"Nowa wizyta"},{key:"manage",label:`Wizyty (${upcomingCount})`},{key:"calendar",label:"Kalendarz"},{key:"stats",label:"📊 Statystyki"},{key:"admin",label:"🔒"}].map((tab,ti,arr)=>(
+            <button key={tab.key} onClick={()=>switchView(tab.key)} style={{flex:1,padding:"14px 0",background:view===tab.key?C.accentLight:"transparent",border:"none",borderRight:ti<arr.length-1?`1px solid ${C.border}`:"none",color:view===tab.key?C.accent:C.textMuted,fontSize:10,letterSpacing:1.5,fontWeight:700,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Courier New', monospace",transition:"all 0.3s ease"}}>{tab.label}</button>
+          ))}
+        </div>
+
+        {/* ═══ BOOKING ═══ */}
+        {view==="booking"&&(<div key={`b-${animKey}`} style={{animation:"fadeSlideIn 0.4s ease"}}>
+          {step<5&&(<div style={{display:"flex",justifyContent:"center",gap:8,marginBottom:20}}>
+            {["Barber","Usługa","Termin","Godzina","Potwierdź"].map((l,i)=>(<div key={i} style={{display:"flex",alignItems:"center",gap:8}}><div style={{width:28,height:28,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,fontWeight:700,transition:"all 0.4s ease",background:i<=step?C.accent:"transparent",color:i<=step?C.white:C.textMuted,border:`1px solid ${i<=step?C.accent:C.border}`}}>{i+1}</div>{i<4&&<div style={{width:16,height:1,background:i<step?C.accent:C.border,transition:"background 0.4s ease"}}/>}</div>))}
+          </div>)}
+          {step>0&&step<5&&<SelectionBreadcrumb/>}
+
+          {step===0&&(<Section title="Wybierz barbera"><div style={{display:"flex",flexDirection:"column",gap:12}}>{BARBERS.map(b=>(<HoverCard key={b.id} onClick={()=>{setSelectedBarber(b);setStep(1);}}><div style={{display:"flex",alignItems:"center",gap:16}}><Avatar letter={b.avatar}/><div style={{fontSize:18,fontFamily:"'Georgia', serif",letterSpacing:1}}>{b.name}</div></div></HoverCard>))}</div></Section>)}
+
+          {step===1&&(<Section title="Wybierz usługę" onBack={()=>setStep(0)}><div style={{display:"flex",flexDirection:"column",gap:10}}>{SERVICES.map(s=>(<HoverCard key={s.id} onClick={()=>{setSelectedService(s);setStep(2);}}><div style={{display:"flex",alignItems:"center",gap:14}}><span style={{fontSize:24}}>{s.icon}</span><div><div style={{fontSize:15,fontFamily:"'Georgia', serif",letterSpacing:0.5,marginBottom:3}}>{s.name}</div><div style={{fontSize:11,color:C.textSoft,letterSpacing:1}}>{s.duration} MIN</div></div></div></HoverCard>))}</div></Section>)}
+
+          {step===2&&(<Section title="Wybierz dzień" onBack={()=>setStep(1)}><WeekPicker weekDays={weekDays} weekStart={weekStart} setWeekStart={setWeekStart} selectedDate={selectedDate} onSelect={d=>{const hol=isHoliday(d);if(hol){setHolidayWarning({date:d,holiday:hol,context:"booking"});return;}setSelectedDate(d);setSelectedSlot(null);setStep(3);}} showHolidays={true}/></Section>)}
+
+          {step===3&&(<Section title={`${selectedDate.getDate()} ${MONTH_NAMES_PL[selectedDate.getMonth()]}`} subtitle={`${selectedBarber.name} · ${selectedService.name} · ${selectedService.duration} min`} onBack={()=>setStep(2)}><SlotGrid slots={slots} selectedSlot={selectedSlot} onSelect={handleSlotSelect} isOutside={s=>isOutsideStandard(s,selectedDate)}/></Section>)}
+
+          {step===4&&(<Section title="Potwierdzenie" onBack={()=>setStep(3)}>
+            <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:10,padding:24,marginBottom:20,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+              <SummaryRow label="Barber" value={selectedBarber.name}/>
+              <SummaryRow label="Usługa" value={`${selectedService.name} (${selectedService.duration} min)`}/>
+              <SummaryRow label="Data" value={formatDatePL(selectedDate)}/>
+              <SummaryRow label="Godzina" value={`${selectedSlot.label} – ${minToLabel(selectedSlot.startMin+selectedService.duration)}`}/>
+            </div>
+            <div style={{marginBottom:16}}>
+              <FieldLabel>Imię klienta</FieldLabel>
+              <input type="text" value={clientName} onChange={e=>setClientName(e.target.value)} placeholder="Wpisz imię klienta..." style={inputStyle} onFocus={e=>e.target.style.borderColor=C.accent} onBlur={e=>e.target.style.borderColor=C.border}/>
+            </div>
+            <div style={{marginBottom:20}}>
+              <FieldLabel>Numer telefonu</FieldLabel>
+              <input type="tel" value={clientPhone} onChange={e=>setClientPhone(formatPhone(e.target.value))} placeholder="+48 ..." style={inputStyle} onFocus={e=>e.target.style.borderColor=C.accent} onBlur={e=>e.target.style.borderColor=C.border}/>
+              {clientPhone&&clientPhone.replace(/\D/g,"").length>0&&!phoneValid&&(<div style={{fontSize:10,color:C.danger,marginTop:4}}>Min. 9 cyfr</div>)}
+            </div>
+            {(()=>{
+              const canSubmit=clientName.trim()&&phoneValid;
+              const smsMsg=canSubmit?buildConfirmMsg({barberName:selectedBarber.name,service:selectedService,datePL:formatDatePL(selectedDate),slotLabel:selectedSlot.label,endMin:selectedSlot.startMin+selectedService.duration}):"";
+              const href=canSubmit?buildSmsHref(clientPhone.trim(),smsMsg):null;
+              return href?(
+                <a href={href} onClick={(e)=>{if(!canSubmit){e.preventDefault();return;}handleConfirm();}} style={{...goldBtnStyle,display:"block",textDecoration:"none",textAlign:"center",...(!canSubmit?disabledBtn:{})}}>Zarezerwuj i wyślij SMS</a>
+              ):(
+                <button onClick={handleConfirm} disabled={!canSubmit} style={{...goldBtnStyle,...(!canSubmit?disabledBtn:{})}}>Zarezerwuj wizytę</button>
+              );
+            })()}
+          </Section>)}
+
+          {step===5&&confirmed&&(<div style={{textAlign:"center",padding:"20px 0"}}>
+            <div style={{width:72,height:72,borderRadius:"50%",background:C.accentGrad,display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 24px",fontSize:32,color:C.white,animation:"scaleIn 0.5s ease"}}>✓</div>
+            <h2 style={{fontSize:24,fontFamily:"'Georgia', serif",letterSpacing:2,marginBottom:8,color:C.text}}>Zarezerwowano!</h2>
+            <p style={{color:C.textSoft,fontSize:13,letterSpacing:1,marginBottom:28}}>Do zobaczenia, {confirmed.clientName}</p>
+            <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:10,padding:24,textAlign:"left",marginBottom:28,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+              <SummaryRow label="Klient" value={confirmed.clientName}/>
+              <SummaryRow label="Telefon" value={confirmed.clientPhone}/>
+              <SummaryRow label="Barber" value={confirmed.barberName}/>
+              <SummaryRow label="Usługa" value={confirmed.service?.name||"—"}/>
+              <SummaryRow label="Termin" value={confirmed.datePL}/>
+              <SummaryRow label="Godzina" value={`${confirmed.slotLabel} – ${minToLabel(confirmed.endMin)}`}/>
+            </div>
+            <div style={{background:C.success,border:`1px solid ${C.successBorder}`,borderRadius:8,padding:"10px 16px",marginBottom:16,textAlign:"center",fontSize:11,color:C.successText,fontWeight:700}}>✓ SMS z potwierdzeniem został otwarty</div>
+
+            {/* ─── Recurring booking ─── */}
+            <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:10,padding:20,marginBottom:12,marginTop:16,textAlign:"left",boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+              <div style={{fontSize:10,letterSpacing:3,color:C.accent,textTransform:"uppercase",fontWeight:700,marginBottom:12}}>🔄 Powtarzająca się wizyta</div>
+              <div style={{fontSize:11,color:C.textSoft,marginBottom:14,lineHeight:1.5}}>Umów kolejne wizyty w stałych odstępach dla {confirmed.clientName}</div>
+              <FieldLabel>Co ile tygodni?</FieldLabel>
+              <div style={{display:"flex",gap:6,marginBottom:12}}>
+                {[{val:2,label:"Co 2 tyg."},{val:3,label:"Co 3 tyg."},{val:4,label:"Co 4 tyg."}].map(o=>(
+                  <button key={o.val} onClick={()=>setRepeatInterval(repeatInterval===o.val?null:o.val)} style={{flex:1,padding:"10px 4px",borderRadius:6,fontSize:10,fontWeight:700,fontFamily:"'Courier New', monospace",cursor:"pointer",transition:"all 0.2s ease",background:repeatInterval===o.val?C.accentMid:C.card,border:`1px solid ${repeatInterval===o.val?C.accent:C.border}`,color:repeatInterval===o.val?C.accent:C.textSoft}}>{o.label}</button>
+                ))}
+              </div>
+              {repeatInterval&&(<>
+                <FieldLabel>Ile wizyt z góry?</FieldLabel>
+                <div style={{display:"flex",gap:6,marginBottom:14}}>
+                  {[2,3,4,5,6].map(n=>(
+                    <button key={n} onClick={()=>setRepeatCount(n)} style={{flex:1,padding:"10px 4px",borderRadius:6,fontSize:13,fontWeight:700,fontFamily:"'Georgia', serif",cursor:"pointer",transition:"all 0.2s ease",background:repeatCount===n?C.accentMid:C.card,border:`1px solid ${repeatCount===n?C.accent:C.border}`,color:repeatCount===n?C.accent:C.textSoft}}>{n}</button>
+                  ))}
+                </div>
+                <div style={{fontSize:10,color:C.textSoft,marginBottom:12,lineHeight:1.5}}>
+                  {repeatCount} wizyt co {repeatInterval} tyg. · {confirmed.barberName} · {confirmed.service?.name||"—"} · preferowana godz. {confirmed.slotLabel}
+                </div>
+                {repeatBookings.length===0?(<button onClick={handleRepeatBooking} disabled={repeatSyncing} style={{...goldBtnStyle,padding:"14px",fontSize:11,...(repeatSyncing?disabledBtn:{})}}>{repeatSyncing?"Zapisywanie...":"Zarezerwuj cykl wizyt"}</button>
+                ):(<div>
+                  <div style={{fontSize:10,letterSpacing:2,color:C.successText,fontWeight:700,marginBottom:8,textTransform:"uppercase"}}>✓ Zarezerwowano cykl</div>
+                  {repeatBookings.map((rb,i)=>(
+                    <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 10px",marginBottom:4,borderRadius:6,background:rb.skipped?C.dangerBg:C.success,borderLeft:`3px solid ${rb.skipped?C.danger:C.successText}`}}>
+                      <span style={{fontSize:11,color:C.text}}>{rb.datePL}</span>
+                      <span style={{fontSize:11,color:rb.skipped?C.danger:C.accent,fontWeight:700}}>{rb.skipped?"Brak wolnych":"✓ "+rb.slotLabel}</span>
+                    </div>
+                  ))}
+                </div>)}
+              </>)}
+            </div>
+
+            <button onClick={resetBooking} style={outlineBtnStyle} onMouseOver={e=>e.currentTarget.style.background=C.accentLight} onMouseOut={e=>e.currentTarget.style.background="transparent"}>Nowa rezerwacja</button>
+          </div>)}
+        </div>)}
+
+        {/* ═══ MANAGE ═══ */}
+        {view==="manage"&&(<div key={`m-${animKey}`} style={{animation:"fadeSlideIn 0.4s ease"}}>
+          <div style={{marginBottom:16}}>
+            <input type="text" defaultValue="" onChange={e=>{const v=e.target.value;clearTimeout(window._searchTimer);window._searchTimer=setTimeout(()=>{setSearchQuery(v);if(v.trim())setManageFilter("all");setManageShowCount(20);},300);}} placeholder="🔍 Szukaj klienta, telefonu..." style={{...inputStyle,padding:"10px 14px",fontSize:12,background:C.card,marginBottom:10}} onFocus={e=>e.target.style.borderColor=C.accent} onBlur={e=>e.target.style.borderColor=C.border}/>
+            <div style={{display:"flex",gap:6}}>
+              {[{key:"upcoming",label:`Nadchodzące (${upcomingCount})`},{key:"past",label:"Przeszłe"},{key:"all",label:`Wszystkie (${bookings.length})`}].map(f=>(
+                <button key={f.key} onClick={()=>{setManageFilter(f.key);setManageShowCount(20);}} style={{flex:1,padding:"8px 4px",borderRadius:6,fontSize:9,fontWeight:700,letterSpacing:0.8,textTransform:"uppercase",fontFamily:"'Courier New', monospace",cursor:"pointer",transition:"all 0.2s ease",background:manageFilter===f.key?C.accentMid:C.card,border:`1px solid ${manageFilter===f.key?C.accent:C.border}`,color:manageFilter===f.key?C.accent:C.textSoft}}>{f.label}</button>
+              ))}
+            </div>
+          </div>
+          {GOOGLE_SCRIPT_URL!=="TUTAJ_WKLEJ_URL"&&(<div style={{textAlign:"right",marginBottom:12}}><button onClick={loadBookings} style={{background:"none",border:`1px solid ${C.border}`,borderRadius:6,color:C.textSoft,padding:"8px 14px",fontSize:10,letterSpacing:1,cursor:"pointer",fontFamily:"'Courier New', monospace"}}>↻ Odśwież</button></div>)}
+
+          {sortedBookings.length===0?(<div style={{textAlign:"center",padding:"60px 20px",color:C.textMuted}}><div style={{fontSize:40,marginBottom:16,opacity:0.4}}>📋</div><div style={{fontSize:14,letterSpacing:1}}>{searchQuery?"Brak wyników":"Brak wizyt"}</div></div>):(
+            <div style={{display:"flex",flexDirection:"column",gap:10}}>
+              {sortedBookings.slice(0,manageShowCount).map((b,idx)=>{
+                if(!b||!b.id)return null;
+                let tu,isTod;
+                try{tu=timeUntil(b.date||new Date().toDateString(),b.startMin||0);}catch(e){tu={label:"?",past:true};}
+                try{isTod=isTodayDate(b.date||"");}catch(e){isTod=false;}
+                const isExp=expandedBooking===b.id,isCancel=cancelConfirmId===b.id,isResch=rescheduleBooking&&rescheduleBooking.id===b.id;
+                return(
+                  <div key={b.id+"_"+idx} style={{background:C.card,border:`1px solid ${isExp?C.accent:tu.past?"rgba(0,0,0,0.06)":C.border}`,borderRadius:10,overflow:"hidden",transition:"all 0.3s ease",boxShadow:isExp?"0 2px 12px rgba(139,111,71,0.1)":"0 1px 3px rgba(0,0,0,0.04)",opacity:tu.past?0.55:1,borderLeft:isTod&&!tu.past?`3px solid ${C.accent}`:undefined}}>
+                    <button onClick={()=>{setExpandedBooking(isExp?null:b.id);setCancelConfirmId(null);setRescheduleBooking(null);}} style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",padding:"16px 18px",background:"transparent",border:"none",color:C.text,fontFamily:"'Courier New', monospace",cursor:"pointer",textAlign:"left"}}>
+                      <div style={{display:"flex",alignItems:"center",gap:12}}>
+                        <Avatar letter={(b.barberName||"?")[0]} size={36} fontSize={13}/>
+                        <div><div style={{fontSize:14,fontFamily:"'Georgia', serif",marginBottom:2}}>{b.clientName||"—"}</div><div style={{fontSize:10,color:C.textSoft,letterSpacing:0.5}}>{b.barberName||"—"} · {b.service?.name||"—"}</div></div>
+                      </div>
+                      <div style={{textAlign:"right"}}>
+                        <div style={{fontSize:14,color:C.accent,fontFamily:"'Georgia', serif",letterSpacing:1}}>{b.slotLabel||"—"}</div>
+                        <div style={{fontSize:10,color:C.textMuted,letterSpacing:0.5,marginTop:2}}>{b.date?formatDateShort(b.date):"—"}</div>
+                        <div style={{fontSize:9,marginTop:3,letterSpacing:0.5,fontWeight:700,color:tu.past?C.textMuted:isTod?C.accent:C.textSoft}}>{isTod&&!tu.past?`DZIŚ · ${tu.label}`:tu.label}</div>
+                      </div>
+                    </button>
+
+                    {isExp&&(<div style={{padding:"0 18px 18px",animation:"fadeSlideIn 0.3s ease"}}>
+                      <div style={{borderTop:`1px solid ${C.border}`,paddingTop:14,marginBottom:14}}>
+                        <SummaryRow label="Klient" value={b.clientName||"—"}/><SummaryRow label="Telefon" value={b.clientPhone||"—"}/><SummaryRow label="Barber" value={b.barberName||"—"}/>
+                        <SummaryRow label="Usługa" value={`${b.service?.name||"—"} (${b.service?.duration||0} min)`}/><SummaryRow label="Data" value={b.datePL||"—"}/>
+                        <SummaryRow label="Godzina" value={`${b.slotLabel||"—"} – ${minToLabel(b.endMin||0)}`}/>
+                        {!tu.past&&(<div style={{display:"flex",justifyContent:"flex-end"}}><span style={{fontSize:10,padding:"3px 10px",borderRadius:12,background:isTod?C.accentLight:C.infoBg,border:`1px solid ${isTod?C.accentMid:C.infoBorder}`,color:isTod?C.accent:C.info,fontWeight:700,letterSpacing:0.5}}>{isTod?`Dziś · ${tu.label}`:tu.label}</span></div>)}
+                      </div>
+
+                      {isResch?(<div style={{marginBottom:12}}>
+                        <div style={{fontSize:10,letterSpacing:3,color:C.accent,textTransform:"uppercase",marginBottom:12,fontWeight:700}}>Przekładanie wizyty</div>
+                        <div style={{background:C.dangerBg,border:`1px solid ${C.dangerBorder}`,borderRadius:8,padding:"10px 14px",marginBottom:10}}>
+                          <div style={{fontSize:9,letterSpacing:2,color:C.danger,textTransform:"uppercase",fontWeight:700,marginBottom:4}}>Obecny termin</div>
+                          <div style={{fontSize:12,color:C.text}}>{rescheduleBooking.barberName} · {rescheduleBooking.datePL}, {rescheduleBooking.slotLabel}–{minToLabel(rescheduleBooking.endMin)}</div>
+                        </div>
+
+                        {/* Step 0: Barber */}
+                        {rescheduleStep===0&&(<>
+                          <div style={{fontSize:10,letterSpacing:2,color:C.textSoft,textTransform:"uppercase",marginBottom:8,fontWeight:700}}>Barber</div>
+                          <div style={{display:"flex",gap:8,marginBottom:14}}>
+                            {BARBERS.map(br=>(<button key={br.id} onClick={()=>setRescheduleBarber(br.id)} style={{flex:1,padding:"12px 8px",borderRadius:8,display:"flex",alignItems:"center",justifyContent:"center",gap:8,fontFamily:"'Courier New', monospace",fontSize:12,fontWeight:700,cursor:"pointer",transition:"all 0.2s ease",background:rescheduleBarber===br.id?C.accentMid:C.card,border:`1px solid ${rescheduleBarber===br.id?C.accent:C.border}`,color:rescheduleBarber===br.id?C.accent:C.textSoft}}><Avatar letter={br.avatar} size={24} fontSize={10}/>{br.name}</button>))}
+                          </div>
+                          <button onClick={()=>{setRescheduleStep(1);setRescheduleDate(null);setRescheduleSlot(null);}} style={{...goldBtnStyle,padding:"12px",fontSize:11,marginBottom:8}}>Dalej — wybierz dzień</button>
+                          <button onClick={()=>setRescheduleBooking(null)} style={{...outlineBtnStyle,padding:"12px",fontSize:11,borderColor:C.border,color:C.textSoft}}>Anuluj przekładanie</button>
+                        </>)}
+
+                        {/* Step 1: Day */}
+                        {rescheduleStep===1&&(<>
+                          <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:10}}>
+                            <Avatar letter={(BARBERS.find(x=>x.id===rescheduleBarber)||BARBERS[0]).avatar} size={22} fontSize={9}/>
+                            <span style={{fontSize:11,color:C.accent,fontWeight:700}}>{(BARBERS.find(x=>x.id===rescheduleBarber)||BARBERS[0]).name}</span>
+                            <button onClick={()=>setRescheduleStep(0)} style={{marginLeft:"auto",background:"none",border:`1px solid ${C.border}`,borderRadius:4,padding:"2px 8px",fontSize:9,color:C.textSoft,cursor:"pointer",fontFamily:"inherit"}}>zmień</button>
+                          </div>
+                          <WeekPicker weekDays={rescheduleWeekDays} weekStart={rescheduleWeekStart} setWeekStart={setRescheduleWeekStart} selectedDate={rescheduleDate} onSelect={d=>{const hol=isHoliday(d);if(hol){setHolidayWarning({date:d,holiday:hol,context:"reschedule"});return;}setRescheduleDate(d);setRescheduleSlot(null);setRescheduleStep(2);}} showHolidays={true}/>
+                          <button onClick={()=>setRescheduleStep(0)} style={{...outlineBtnStyle,marginTop:12,padding:"12px",fontSize:11,borderColor:C.border,color:C.textSoft}}>‹ Zmień barbera</button>
+                        </>)}
+
+                        {/* Step 2: Slot */}
+                        {rescheduleStep===2&&(<>
+                          <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:10,flexWrap:"wrap"}}>
+                            <Avatar letter={(BARBERS.find(x=>x.id===rescheduleBarber)||BARBERS[0]).avatar} size={22} fontSize={9}/>
+                            <span style={{fontSize:11,color:C.accent,fontWeight:700}}>{(BARBERS.find(x=>x.id===rescheduleBarber)||BARBERS[0]).name}</span>
+                            <span style={{fontSize:10,color:C.textMuted}}>·</span>
+                            <span style={{fontSize:11,color:C.textSoft}}>{formatDatePL(rescheduleDate)}</span>
+                          </div>
+                          <SlotGrid slots={rescheduleSlots} selectedSlot={rescheduleSlot} onSelect={handleRescheduleSlotSelect} isOutside={s=>isOutsideStandard(s,rescheduleDate)}/>
+                          <div style={{display:"flex",gap:8,marginTop:12}}>
+                            <button onClick={()=>{setRescheduleStep(1);setRescheduleSlot(null);}} style={{...outlineBtnStyle,flex:1,padding:"12px",fontSize:11,borderColor:C.border,color:C.textSoft}}>‹ Zmień dzień</button>
+                          </div>
+                        </>)}
+
+                        {/* Confirmation */}
+                        {rescheduleSlot&&rescheduleDate&&(<div style={{marginTop:12}}>
+                          <div style={{background:C.success,border:`1px solid ${C.successBorder}`,borderRadius:8,padding:"10px 14px",marginBottom:12}}>
+                            <div style={{fontSize:9,letterSpacing:2,color:C.successText,textTransform:"uppercase",fontWeight:700,marginBottom:4}}>Nowy termin</div>
+                            <div style={{fontSize:12,color:C.text}}>{(BARBERS.find(x=>x.id===rescheduleBarber)||BARBERS[0]).name} · {formatDatePL(rescheduleDate)}, {rescheduleSlot.label}–{minToLabel(rescheduleSlot.startMin+rescheduleBooking.service.duration)}</div>
+                            {rescheduleBarber!==rescheduleBooking.barberId&&(<div style={{fontSize:10,color:C.accent,marginTop:4,fontWeight:700}}>⚡ Zmiana barbera: {rescheduleBooking.barberName} → {(BARBERS.find(x=>x.id===rescheduleBarber)||BARBERS[0]).name}</div>)}
+                          </div>
+                          {(()=>{
+                            const msg=buildRescheduleMsg({barberName:(BARBERS.find(x=>x.id===rescheduleBarber)||BARBERS[0]).name,service:rescheduleBooking.service,datePL:formatDatePL(rescheduleDate),slotLabel:rescheduleSlot.label,endMin:rescheduleSlot.startMin+rescheduleBooking.service.duration},rescheduleBooking.datePL,rescheduleBooking.slotLabel);
+                            const href=buildSmsHref(rescheduleBooking.clientPhone,msg);
+                            return href?(
+                              <a href={href} onClick={confirmReschedule} style={{...goldBtnStyle,display:"block",textDecoration:"none",textAlign:"center",padding:"14px",fontSize:11}}>Potwierdź i wyślij SMS</a>
+                            ):(
+                              <button onClick={confirmReschedule} style={{...goldBtnStyle,padding:"14px",fontSize:11}}>Potwierdź nowy termin</button>
+                            );
+                          })()}
+                        </div>)}
+                      </div>):isCancel?(<div style={{marginBottom:12}}>
+                        <div style={{background:C.dangerBg,border:`1px solid ${C.dangerBorder}`,borderRadius:8,padding:16,marginBottom:12}}>
+                          <div style={{fontSize:13,color:C.danger,marginBottom:6,fontFamily:"'Georgia', serif",textAlign:"center"}}>Odwołać wizytę?</div>
+                          <div style={{fontSize:11,color:C.textSoft,lineHeight:1.6,textAlign:"center",marginBottom:8}}>Ta operacja jest nieodwracalna.</div>
+                          <div style={{borderTop:`1px solid ${C.dangerBorder}`,paddingTop:10,marginTop:4}}>
+                            <div style={{fontSize:11,color:C.text,marginBottom:3}}><b>{b.clientName||"—"}</b> · {b.clientPhone||"—"}</div>
+                            <div style={{fontSize:11,color:C.textSoft}}>{b.barberName||"—"} · {b.service?.name||"—"}</div>
+                            <div style={{fontSize:11,color:C.textSoft}}>{b.datePL||"—"}, {b.slotLabel||"—"}–{minToLabel(b.endMin||0)}</div>
+                          </div>
+                        </div>
+                        <div style={{display:"flex",gap:8}}>
+                          <button onClick={()=>setCancelConfirmId(null)} style={{...outlineBtnStyle,flex:1,padding:"12px",fontSize:11,borderColor:C.border,color:C.textSoft}}>Nie, zachowaj</button>
+                          <button onClick={()=>handleCancel(b.id)} style={{...dangerBtnStyle,flex:1,padding:"12px",fontSize:11,background:C.dangerBg}}>Tak, odwołaj</button>
+                        </div>
+                      </div>):(<div style={{display:"flex",gap:8}}>
+                        {!tu.past&&<button onClick={()=>startReschedule(b)} style={{...outlineBtnStyle,flex:1,padding:"12px",fontSize:11}} onMouseOver={e=>e.currentTarget.style.background=C.accentLight} onMouseOut={e=>e.currentTarget.style.background="transparent"}>📅 Przenieś</button>}
+                        <button onClick={()=>setCancelConfirmId(b.id)} style={{...dangerBtnStyle,flex:1,padding:"12px",fontSize:11}} onMouseOver={e=>e.currentTarget.style.background=C.dangerBg} onMouseOut={e=>e.currentTarget.style.background="transparent"}>✕ Odwołaj</button>
+                      </div>)}
+                    </div>)}
+                  </div>
+                );
+              })}
+              {sortedBookings.length>manageShowCount&&(<button onClick={()=>setManageShowCount(c=>c+20)} style={{...outlineBtnStyle,padding:"12px",fontSize:10,marginTop:8,borderColor:C.border,color:C.textSoft}}>Pokaż więcej ({sortedBookings.length-manageShowCount} pozostałych)</button>)}
+            </div>
+          )}
+        </div>)}
+
+        {/* ═══ CALENDAR ═══ */}
+        {view==="calendar"&&(<div key={`c-${animKey}`} style={{animation:"fadeSlideIn 0.4s ease"}}>
+          <div style={{marginBottom:24}}>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
+              <button onClick={()=>{const d=new Date(calendarWeekStart);d.setDate(d.getDate()-7);const t=new Date();t.setHours(0,0,0,0);if(d>=t)setCalendarWeekStart(d);}} style={navBtnStyle}>‹</button>
+              <span style={{fontSize:12,letterSpacing:2,color:C.textSoft,textTransform:"uppercase"}}>{MONTH_NAMES_PL[calendarWeekDays[0].getMonth()]} {calendarWeekDays[0].getFullYear()}</span>
+              <button onClick={()=>{const d=new Date(calendarWeekStart);d.setDate(d.getDate()+7);setCalendarWeekStart(d);}} style={navBtnStyle}>›</button>
+            </div>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(7, 1fr)",gap:6}}>
+              {calendarWeekDays.map((day,i)=>{const today=new Date();today.setHours(0,0,0,0);const isPast=day<today,isSel=calendarDate&&day.toDateString()===calendarDate.toDateString(),holiday=isHoliday(day),isSun=day.getDay()===0,occ=getDayOccupancy(day),occC=isSun?null:occupancyColor(occ,day);return(
+                <button key={i} onClick={()=>{if(!isPast)setCalendarDate(day);}} disabled={isPast} style={{padding:"10px 2px",borderRadius:8,textAlign:"center",position:"relative",background:isSun?(isPast?"#f0ece5":isSel?C.sundayBg:C.sundayBg):isSel?(holiday?C.holidayBg:C.accentMid):isPast?"#f0ece5":occC?occC.bg:C.card,border:isSel?`2px solid ${isSun?C.sunday:holiday?C.holiday:C.accent}`:isSun&&!isPast?`1px solid ${C.sundayBorder}`:occC&&!isPast?`1px solid ${occC.border}`:`1px solid ${C.border}`,color:isPast?C.textMuted:isSun?C.sunday:holiday?C.holiday:isSel?C.accent:C.text,cursor:isPast?"not-allowed":"pointer",fontFamily:"inherit",transition:"all 0.2s ease",opacity:isSun&&isPast?0.4:isSun?0.55:1}}>
+                  <div style={{fontSize:9,color:isSun&&!isPast?C.sunday:holiday&&!isPast?C.holiday:C.textMuted,letterSpacing:1,marginBottom:3}}>{DAY_NAMES_PL[day.getDay()]}</div>
+                  <div style={{fontSize:16,fontFamily:"'Georgia', serif",marginBottom:3}}>{day.getDate()}</div>
+                  {!isPast&&!isSun&&occC&&<div style={{width:7,height:7,borderRadius:"50%",background:occC.dot,margin:"0 auto"}}/>}
+                  {isSun&&!isPast&&<div style={{fontSize:6,color:C.sunday,letterSpacing:0.3,textTransform:"uppercase",lineHeight:1}}>nieczynne</div>}
+                </button>);})}
+            </div>
+            <div style={{display:"flex",justifyContent:"center",gap:10,marginTop:12,flexWrap:"wrap"}}>
+              {[{color:"#3a3",label:"Dużo miejsc"},{color:"#b90",label:"Średnio"},{color:"#d44",label:"Mało miejsc"},{color:C.holiday,label:"Święto"},{color:C.sunday,label:"Nieczynne"}].map(l=>(<div key={l.label} style={{display:"flex",alignItems:"center",gap:5}}><div style={{width:8,height:8,borderRadius:"50%",background:l.color}}/><span style={{fontSize:9,color:C.textSoft,letterSpacing:0.5}}>{l.label}</span></div>))}
+            </div>
+          </div>
+          <div style={{textAlign:"center",marginBottom:20}}>
+            <div style={{fontSize:16,fontFamily:"'Georgia', serif",color:C.text,letterSpacing:1}}>{formatDatePL(calendarDate)}</div>
+            {(()=>{const holiday=isHoliday(calendarDate);const isSun=calendarDate.getDay()===0;if(isSun)return(<div style={{display:"inline-flex",alignItems:"center",gap:6,marginTop:6,background:C.sundayBg,border:`1px solid ${C.sundayBorder}`,borderRadius:20,padding:"4px 14px",fontSize:10,color:C.sunday,fontWeight:700,letterSpacing:1}}>Niedziela — nieczynne</div>);if(holiday)return(<div style={{display:"inline-flex",alignItems:"center",gap:6,marginTop:6,background:C.holidayBg,border:`1px solid ${C.holidayBorder}`,borderRadius:20,padding:"4px 14px",fontSize:10,color:C.holiday,fontWeight:700,letterSpacing:1}}><span style={{fontSize:13}}>🕊️</span>{holiday.name}</div>);const occ=getDayOccupancy(calendarDate),occC=occupancyColor(occ,calendarDate);if(!occC)return<div style={{fontSize:11,color:C.textMuted,marginTop:4}}>Brak wizyt</div>;return(<div style={{display:"inline-flex",alignItems:"center",gap:6,marginTop:6,background:occC.bg,border:`1px solid ${occC.border}`,borderRadius:20,padding:"4px 12px",fontSize:10,color:occC.dot,fontWeight:700,letterSpacing:1}}><div style={{width:6,height:6,borderRadius:"50%",background:occC.dot}}/>{occC.label}</div>);})()}
+          </div>
+          {calendarDate.getDay()===0?(<div style={{textAlign:"center",padding:"40px 20px"}}><div style={{fontSize:40,marginBottom:12,opacity:0.4}}>😴</div><div style={{fontSize:14,color:C.sunday,fontFamily:"'Georgia', serif",marginBottom:4}}>Niedziela</div><div style={{fontSize:12,color:C.textSoft}}>Salon nieczynny</div></div>):(<div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
+            {BARBERS.map(barber=>{const dayB=getBarberBookingsForDate(calendarDate,barber.id),freeS=generateSlots(calendarDate,{duration:15},barber.id,bookings,null,blockedSlots),occ=getOccupancy(calendarDate,barber.id),occC=occupancyColor(occ,calendarDate);return(
+              <div key={barber.id} style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:10,overflow:"hidden",boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+                <div style={{padding:"14px 14px 10px",borderBottom:`1px solid ${C.border}`,display:"flex",alignItems:"center",justifyContent:"space-between"}}><div style={{display:"flex",alignItems:"center",gap:10}}><Avatar letter={barber.avatar} size={32} fontSize={13}/><span style={{fontSize:14,fontFamily:"'Georgia', serif"}}>{barber.name}</span></div>{occC&&<div style={{width:10,height:10,borderRadius:"50%",background:occC.dot}}/>}</div>
+                <div style={{padding:"8px 14px 4px"}}><div style={{height:4,borderRadius:2,background:C.border,overflow:"hidden"}}><div style={{height:"100%",borderRadius:2,transition:"width 0.4s ease",width:`${Math.min(occ*100,100)}%`,background:occC?occC.dot:C.border}}/></div><div style={{fontSize:9,color:C.textMuted,marginTop:4,textAlign:"right"}}>{dayB.length} wizyt · {freeS.length} wolnych</div></div>
+                <div style={{padding:"6px 14px 14px",minHeight:80}}>{dayB.length===0?(<div style={{textAlign:"center",padding:"16px 0",color:C.textMuted,fontSize:11}}>Brak wizyt</div>):dayB.map(b=>(<div key={b.id} style={{padding:"8px 10px",marginBottom:6,borderRadius:6,background:C.accentLight,borderLeft:`3px solid ${C.accent}`}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:2}}><span style={{fontSize:12,fontWeight:700,color:C.accent,fontFamily:"'Courier New', monospace"}}>{b.slotLabel}–{minToLabel(b.endMin)}</span><span style={{fontSize:9,color:C.textSoft}}>{b.service?.duration||0}min</span></div><div style={{fontSize:12,color:C.text,fontFamily:"'Georgia', serif"}}>{b.clientName||"—"}</div><div style={{fontSize:10,color:C.textSoft}}>{b.service?.name||"—"}</div></div>))}</div>
+              </div>);})}
+          </div>)}
+        </div>)}
+
+        {/* ═══ STATS ═══ */}
+        {view==="stats"&&(<div key={`s-${animKey}`} style={{animation:"fadeSlideIn 0.4s ease"}}>
+          {/* Period filter */}
+          <div style={{display:"flex",gap:6,marginBottom:24}}>
+            {[{key:"week",label:"Ostatni tydzień"},{key:"month",label:"Ostatni miesiąc"},{key:"all",label:"Wszystko"}].map(p=>(
+              <button key={p.key} onClick={()=>setStatsPeriod(p.key)} style={{flex:1,padding:"10px 4px",borderRadius:6,fontSize:10,fontWeight:700,letterSpacing:0.8,textTransform:"uppercase",fontFamily:"'Courier New', monospace",cursor:"pointer",transition:"all 0.2s ease",background:statsPeriod===p.key?C.accentMid:C.card,border:`1px solid ${statsPeriod===p.key?C.accent:C.border}`,color:statsPeriod===p.key?C.accent:C.textSoft}}>{p.label}</button>
+            ))}
+          </div>
+
+          {/* Summary cards */}
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:20}}>
+            <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:10,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+              <div style={{fontSize:28,fontFamily:"'Georgia', serif",color:C.accent,marginBottom:4}}>{stats.total}</div>
+              <div style={{fontSize:9,letterSpacing:2,color:C.textSoft,textTransform:"uppercase"}}>Wizyt łącznie</div>
+            </div>
+            <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:10,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+              <div style={{fontSize:28,fontFamily:"'Georgia', serif",color:C.accent,marginBottom:4}}>{stats.avgPerDay}</div>
+              <div style={{fontSize:9,letterSpacing:2,color:C.textSoft,textTransform:"uppercase"}}>Śr. dziennie</div>
+            </div>
+            <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:10,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+              <div style={{fontSize:28,fontFamily:"'Georgia', serif",color:C.accent,marginBottom:4}}>{Math.round(stats.totalMinutes/60)}h</div>
+              <div style={{fontSize:9,letterSpacing:2,color:C.textSoft,textTransform:"uppercase"}}>Godzin pracy</div>
+            </div>
+            <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:10,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+              <div style={{fontSize:20,fontFamily:"'Georgia', serif",color:C.accent,marginBottom:4}}>{minToLabel(stats.peakHour*60)}</div>
+              <div style={{fontSize:9,letterSpacing:2,color:C.textSoft,textTransform:"uppercase"}}>Popularna godz.</div>
+            </div>
+          </div>
+
+          {/* Barber comparison */}
+          <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:10,padding:20,marginBottom:16,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+            <div style={{fontSize:10,letterSpacing:3,color:C.textSoft,textTransform:"uppercase",fontWeight:700,marginBottom:14}}>Obłożenie barberów</div>
+            {BARBERS.map(barber=>{const d=stats.byBarber[barber.id];const pct=stats.total?Math.round(d.count/stats.total*100):0;return(
+              <div key={barber.id} style={{marginBottom:14}}>
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
+                  <div style={{display:"flex",alignItems:"center",gap:8}}><Avatar letter={barber.avatar} size={28} fontSize={11}/><span style={{fontSize:13,fontFamily:"'Georgia', serif"}}>{barber.name}</span></div>
+                  <div style={{textAlign:"right"}}><span style={{fontSize:14,color:C.accent,fontWeight:700}}>{d.count}</span><span style={{fontSize:10,color:C.textMuted,marginLeft:4}}>wizyt · {Math.round(d.minutes/60)}h</span></div>
+                </div>
+                <div style={{height:6,borderRadius:3,background:C.border,overflow:"hidden"}}>
+                  <div style={{height:"100%",borderRadius:3,background:C.accentGrad,transition:"width 0.6s ease",width:`${pct}%`}}/>
+                </div>
+                <div style={{fontSize:9,color:C.textMuted,marginTop:3,textAlign:"right"}}>{pct}%</div>
+              </div>
+            );})}
+          </div>
+
+          {/* Services breakdown */}
+          <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:10,padding:20,marginBottom:16,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+            <div style={{fontSize:10,letterSpacing:3,color:C.textSoft,textTransform:"uppercase",fontWeight:700,marginBottom:14}}>Popularne usługi</div>
+            {SERVICES.map(svc=>{const d=stats.byService[svc.id];const pct=stats.total?Math.round(d.count/stats.total*100):0;return(
+              <div key={svc.id} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"10px 0",borderBottom:`1px solid ${C.border}`}}>
+                <div style={{display:"flex",alignItems:"center",gap:10}}><span style={{fontSize:18}}>{svc.icon}</span><span style={{fontSize:12,fontFamily:"'Georgia', serif"}}>{svc.name}</span></div>
+                <div style={{display:"flex",alignItems:"center",gap:8}}><span style={{fontSize:14,color:C.accent,fontWeight:700}}>{d.count}</span><span style={{fontSize:10,color:C.textMuted,minWidth:32,textAlign:"right"}}>{pct}%</span></div>
+              </div>
+            );})}
+          </div>
+
+          {/* Hourly heatmap */}
+          <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:10,padding:20,marginBottom:16,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+            <div style={{fontSize:10,letterSpacing:3,color:C.textSoft,textTransform:"uppercase",fontWeight:700,marginBottom:14}}>Rozkład godzinowy</div>
+            <div style={{display:"flex",gap:3,alignItems:"flex-end",height:80}}>
+              {Object.entries(stats.byHour).map(([h,count])=>{const maxC=Math.max(1,...Object.values(stats.byHour));const pct=count/maxC*100;return(
+                <div key={h} style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center",gap:2}}>
+                  <div style={{fontSize:8,color:C.textMuted,fontWeight:count===Math.max(...Object.values(stats.byHour))?700:400}}>{count||""}</div>
+                  <div style={{width:"100%",borderRadius:2,background:count>0?(Number(h)===stats.peakHour?C.accent:"rgba(139,111,71,0.3)"):C.border,height:`${Math.max(pct,4)}%`,transition:"height 0.4s ease",minHeight:2}}/>
+                  <div style={{fontSize:7,color:C.textMuted}}>{h}</div>
+                </div>
+              );})}
+            </div>
+          </div>
+
+          {/* Day of week */}
+          <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:10,padding:20,marginBottom:16,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+            <div style={{fontSize:10,letterSpacing:3,color:C.textSoft,textTransform:"uppercase",fontWeight:700,marginBottom:14}}>Dni tygodnia</div>
+            <div style={{display:"flex",gap:6}}>
+              {[1,2,3,4,5,6,0].map(d=>{const count=stats.byDay[d];const maxC=Math.max(1,...Object.values(stats.byDay));const pct=count/maxC;const isPeak=d===stats.peakDay&&count>0;return(
+                <div key={d} style={{flex:1,textAlign:"center"}}>
+                  <div style={{fontSize:9,color:d===0?C.sunday:isPeak?C.accent:C.textMuted,fontWeight:isPeak?700:400,marginBottom:4}}>{DAY_NAMES_PL[d]}</div>
+                  <div style={{height:40,borderRadius:4,background:C.border,overflow:"hidden",display:"flex",flexDirection:"column",justifyContent:"flex-end"}}>
+                    <div style={{background:d===0?C.sundayBg:isPeak?C.accent:"rgba(139,111,71,0.3)",height:`${Math.max(pct*100,count>0?8:0)}%`,borderRadius:4,transition:"height 0.4s ease"}}/>
+                  </div>
+                  <div style={{fontSize:10,color:isPeak?C.accent:C.text,fontWeight:isPeak?700:400,marginTop:4}}>{count}</div>
+                </div>
+              );})}
+            </div>
+          </div>
+
+          {stats.total===0&&(<div style={{textAlign:"center",padding:"40px 20px",color:C.textMuted}}><div style={{fontSize:40,marginBottom:12,opacity:0.4}}>📊</div><div style={{fontSize:12,letterSpacing:1}}>Brak danych w wybranym okresie</div></div>)}
+        </div>)}
+
+        {/* ═══ ADMIN ═══ */}
+        {view==="admin"&&(<div key={`a-${animKey}`} style={{animation:"fadeSlideIn 0.4s ease"}}>
+          {!adminAuthed?(<div style={{textAlign:"center",padding:"40px 0"}}><div style={{fontSize:36,marginBottom:16}}>🔒</div><div style={{fontSize:15,fontFamily:"'Georgia', serif",color:C.text,marginBottom:6}}>Autoryzacja wymagana</div><div style={{fontSize:11,color:C.textSoft,marginBottom:24}}>Wprowadź kod PIN</div><div style={{maxWidth:200,margin:"0 auto",marginBottom:16}}><input type="password" inputMode="numeric" maxLength={4} value={pinInput} onChange={e=>{setPinInput(e.target.value.replace(/\D/g,""));setPinError(false);}} onKeyDown={e=>{if(e.key==="Enter"&&pinInput.length===4){if(pinInput===ADMIN_PIN)setAdminAuthed(true);else setPinError(true);}}} placeholder="● ● ● ●" style={{...inputStyle,textAlign:"center",fontSize:24,letterSpacing:12,borderColor:pinError?C.danger:C.border}}/></div>{pinError&&<div style={{fontSize:11,color:C.danger,marginBottom:12}}>Nieprawidłowy kod</div>}<button onClick={()=>{if(pinInput===ADMIN_PIN)setAdminAuthed(true);else setPinError(true);}} disabled={pinInput.length<4} style={{...goldBtnStyle,maxWidth:200,margin:"0 auto",...(pinInput.length<4?disabledBtn:{})}}>Potwierdź</button></div>):(
+          <>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}}><div style={{fontSize:10,letterSpacing:2,color:C.accent,fontWeight:700,textTransform:"uppercase"}}>🔓 Autoryzowano</div><button onClick={()=>{setAdminAuthed(false);setPinInput("");}} style={{background:"none",border:`1px solid ${C.border}`,borderRadius:6,color:C.textSoft,padding:"6px 12px",fontSize:9,letterSpacing:1,cursor:"pointer",fontFamily:"'Courier New', monospace"}}>Wyloguj</button></div>
+            <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:10,padding:20,marginBottom:20,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}}>
+              <div style={{fontSize:12,fontFamily:"'Georgia', serif",color:C.text,marginBottom:16}}>Nowa blokada</div>
+              <div style={{marginBottom:14}}><FieldLabel>Barber</FieldLabel><div style={{display:"flex",gap:8}}>{[{id:"all",label:"Obaj"},{id:"pawel",label:"Paweł"},{id:"blazej",label:"Błażej"}].map(o=>(<button key={o.id} onClick={()=>setBlockBarber(o.id)} style={{flex:1,padding:"10px",borderRadius:6,fontSize:11,fontWeight:700,fontFamily:"'Courier New', monospace",cursor:"pointer",transition:"all 0.2s ease",background:blockBarber===o.id?C.accentMid:C.card,border:`1px solid ${blockBarber===o.id?C.accent:C.border}`,color:blockBarber===o.id?C.accent:C.textSoft}}>{o.label}</button>))}</div></div>
+              <div style={{marginBottom:14}}><FieldLabel>Dzień</FieldLabel><WeekPicker weekDays={getWeekDays(blockWeekStart)} weekStart={blockWeekStart} setWeekStart={setBlockWeekStart} selectedDate={blockDate} onSelect={d=>setBlockDate(d)} showHolidays={true}/></div>
+              <div style={{marginBottom:14}}><FieldLabel>Typ blokady</FieldLabel><div style={{display:"flex",gap:8}}>{[{id:"fullday",label:"Cały dzień"},{id:"hours",label:"Wybrane godziny"}].map(o=>(<button key={o.id} onClick={()=>setBlockType(o.id)} style={{flex:1,padding:"10px",borderRadius:6,fontSize:11,fontWeight:700,fontFamily:"'Courier New', monospace",cursor:"pointer",transition:"all 0.2s ease",background:blockType===o.id?C.accentMid:C.card,border:`1px solid ${blockType===o.id?C.accent:C.border}`,color:blockType===o.id?C.accent:C.textSoft}}>{o.label}</button>))}</div></div>
+              {blockType==="hours"&&(<div style={{marginBottom:14}}><FieldLabel>Zakres godzin</FieldLabel><div style={{display:"flex",alignItems:"center",gap:8}}><select value={blockFromH} onChange={e=>setBlockFromH(e.target.value)} style={{...inputStyle,width:"auto",padding:"10px",fontSize:14}}>{Array.from({length:13},(_,i)=>i+8).map(h=><option key={h} value={String(h).padStart(2,"0")}>{String(h).padStart(2,"0")}</option>)}</select><span style={{color:C.textSoft}}>:</span><select value={blockFromM} onChange={e=>setBlockFromM(e.target.value)} style={{...inputStyle,width:"auto",padding:"10px",fontSize:14}}>{["00","15","30","45"].map(m=><option key={m} value={m}>{m}</option>)}</select><span style={{color:C.textSoft,fontSize:12,letterSpacing:2}}>—</span><select value={blockToH} onChange={e=>setBlockToH(e.target.value)} style={{...inputStyle,width:"auto",padding:"10px",fontSize:14}}>{Array.from({length:13},(_,i)=>i+8).map(h=><option key={h} value={String(h).padStart(2,"0")}>{String(h).padStart(2,"0")}</option>)}</select><span style={{color:C.textSoft}}>:</span><select value={blockToM} onChange={e=>setBlockToM(e.target.value)} style={{...inputStyle,width:"auto",padding:"10px",fontSize:14}}>{["00","15","30","45"].map(m=><option key={m} value={m}>{m}</option>)}</select></div></div>)}
+              <button onClick={()=>{const block={id:Date.now(),date:blockDate.toDateString(),datePL:formatDatePL(blockDate),barberId:blockBarber,type:blockType,barberLabel:blockBarber==="all"?"Obaj":blockBarber==="pawel"?"Paweł":"Błażej"};if(blockType==="hours"){block.startMin=parseInt(blockFromH)*60+parseInt(blockFromM);block.endMin=parseInt(blockToH)*60+parseInt(blockToM);if(block.endMin<=block.startMin)return;block.label=`${blockFromH}:${blockFromM}–${blockToH}:${blockToM}`;}setBlockedSlots(prev=>[...prev,block]);}} style={goldBtnStyle}>Dodaj blokadę</button>
+            </div>
+            <div style={{marginBottom:20}}><div style={{fontSize:10,letterSpacing:3,color:C.textSoft,textTransform:"uppercase",marginBottom:12,fontWeight:700}}>Aktywne blokady ({blockedSlots.length})</div>{blockedSlots.length===0?(<div style={{textAlign:"center",padding:"30px 0",color:C.textMuted,fontSize:12}}>Brak blokad</div>):(<div style={{display:"flex",flexDirection:"column",gap:8}}>{blockedSlots.sort((a,b)=>new Date(a.date)-new Date(b.date)).map(bl=>(<div key={bl.id} style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:8,padding:"12px 16px",display:"flex",alignItems:"center",justifyContent:"space-between",borderLeft:`3px solid ${C.danger}`}}><div><div style={{fontSize:12,fontFamily:"'Georgia', serif",color:C.text,marginBottom:2}}>{bl.datePL}</div><div style={{fontSize:10,color:C.textSoft}}>{bl.barberLabel} · {bl.type==="fullday"?"Cały dzień":bl.label}</div></div><button onClick={()=>setBlockedSlots(prev=>prev.filter(x=>x.id!==bl.id))} style={{background:"none",border:`1px solid ${C.dangerBorder}`,borderRadius:6,color:C.danger,padding:"6px 10px",fontSize:10,cursor:"pointer",fontFamily:"'Courier New', monospace",fontWeight:700}}>✕</button></div>))}</div>)}</div>
+          </>)}
+        </div>)}
+      </div>
+
+      {outsideHoursWarning&&(<div style={{position:"fixed",inset:0,zIndex:100,background:"rgba(0,0,0,0.35)",backdropFilter:"blur(4px)",display:"flex",alignItems:"center",justifyContent:"center",padding:20,animation:"fadeSlideIn 0.25s ease"}} onClick={()=>setOutsideHoursWarning(null)}><div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:12,padding:28,maxWidth:400,width:"100%",textAlign:"center",boxShadow:"0 8px 32px rgba(0,0,0,0.12)"}} onClick={e=>e.stopPropagation()}><div style={{fontSize:28,marginBottom:16}}>⚠️</div><div style={{fontSize:16,fontFamily:"'Georgia', serif",color:C.text,marginBottom:8}}>Godzina poza standardowym zakresem</div><div style={{fontSize:12,color:C.textSoft,lineHeight:1.6,marginBottom:6}}>Wybrana godzina <span style={{color:C.accent,fontWeight:700}}>{outsideHoursWarning.slot.label}</span> jest poza standardowymi godzinami pracy</div><div style={{fontSize:12,color:C.textMuted,marginBottom:24}}>(9:00 – 18:00)</div><div style={{fontSize:13,color:C.text,marginBottom:24,fontFamily:"'Georgia', serif"}}>Czy na pewno umówić wizytę o tej godzinie?</div><div style={{display:"flex",gap:10}}><button onClick={()=>setOutsideHoursWarning(null)} style={{...outlineBtnStyle,flex:1,padding:"14px",fontSize:11,borderColor:C.border,color:C.textSoft}}>Nie, wróć</button><button onClick={confirmOutsideHours} style={{...goldBtnStyle,flex:1,padding:"14px",fontSize:11}}>Tak, umów</button></div></div></div>)}
+
+      {holidayWarning&&(<div style={{position:"fixed",inset:0,zIndex:100,background:"rgba(0,0,0,0.35)",backdropFilter:"blur(4px)",display:"flex",alignItems:"center",justifyContent:"center",padding:20,animation:"fadeSlideIn 0.25s ease"}} onClick={()=>setHolidayWarning(null)}><div style={{background:C.card,border:`1px solid ${C.holidayBorder}`,borderRadius:12,padding:28,maxWidth:400,width:"100%",textAlign:"center",boxShadow:"0 8px 32px rgba(0,0,0,0.12)"}} onClick={e=>e.stopPropagation()}><div style={{fontSize:28,marginBottom:16}}>🕊️</div><div style={{fontSize:16,fontFamily:"'Georgia', serif",color:C.holiday,marginBottom:8}}>{holidayWarning.holiday.name}</div><div style={{fontSize:12,color:C.textSoft,lineHeight:1.6,marginBottom:6}}>Wybrany dzień <span style={{color:C.holiday,fontWeight:700}}>{formatDatePL(holidayWarning.date)}</span> to święto.</div><div style={{fontSize:13,color:C.text,marginBottom:24,marginTop:16,fontFamily:"'Georgia', serif"}}>Czy na pewno umówić wizytę w ten dzień?</div><div style={{display:"flex",gap:10}}><button onClick={()=>setHolidayWarning(null)} style={{...outlineBtnStyle,flex:1,padding:"14px",fontSize:11,borderColor:C.border,color:C.textSoft}}>Nie, wróć</button><button onClick={()=>{const d=holidayWarning.date,ctx=holidayWarning.context;setHolidayWarning(null);if(ctx==="booking"){setSelectedDate(d);setSelectedSlot(null);setStep(3);}else{setRescheduleDate(d);setRescheduleSlot(null);setRescheduleStep(1);}}} style={{...goldBtnStyle,flex:1,padding:"14px",fontSize:11,background:`linear-gradient(135deg, ${C.holiday}, #9575cd)`}}>Tak, umów</button></div></div></div>)}
+
+      </>}
+      <style>{`@keyframes fadeSlideIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@keyframes scaleIn{from{opacity:0;transform:scale(0.5)}to{opacity:1;transform:scale(1)}}::selection{background:#8b6f47;color:#fff}input::placeholder{color:#b5aa9a}`}</style>
+    </div>
+  );
+}
+
+function Section({title,subtitle,onBack,children}){return(<div><div style={{display:"flex",alignItems:"center",gap:12,marginBottom:20}}>{onBack&&(<button onClick={onBack} style={{background:"none",border:`1px solid ${C.border}`,borderRadius:6,color:C.textSoft,width:32,height:32,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,fontFamily:"inherit",transition:"all 0.2s ease"}} onMouseOver={e=>{e.currentTarget.style.borderColor=C.accent;e.currentTarget.style.color=C.accent;}} onMouseOut={e=>{e.currentTarget.style.borderColor=C.border;e.currentTarget.style.color=C.textSoft;}}>‹</button>)}<div><h2 style={{fontSize:20,fontFamily:"'Georgia', serif",letterSpacing:1,margin:0,color:C.text}}>{title}</h2>{subtitle&&<div style={{fontSize:11,color:C.textSoft,letterSpacing:1,marginTop:4}}>{subtitle}</div>}</div></div>{children}</div>);}
+function SummaryRow({label,value}){return(<div style={{display:"flex",justifyContent:"space-between",marginBottom:10}}><span style={{fontSize:11,color:C.textSoft,letterSpacing:1}}>{label}</span><span style={{fontSize:13,color:C.text,fontFamily:"'Georgia', serif",textAlign:"right",maxWidth:"65%"}}>{value}</span></div>);}
+function FieldLabel({children}){return <label style={{fontSize:10,letterSpacing:2,color:C.textSoft,textTransform:"uppercase",display:"block",marginBottom:8}}>{children}</label>;}
+function Avatar({letter,size=52,fontSize=20}){return(<div style={{width:size,height:size,borderRadius:"50%",background:C.accentGrad,display:"flex",alignItems:"center",justifyContent:"center",fontSize,fontWeight:700,color:C.white,fontFamily:"'Georgia', serif",flexShrink:0}}>{letter}</div>);}
+function HoverCard({children,onClick}){return(<button onClick={onClick} style={cardStyle} onMouseOver={e=>{e.currentTarget.style.borderColor=C.borderHover;e.currentTarget.style.boxShadow="0 2px 8px rgba(139,111,71,0.1)";}} onMouseOut={e=>{e.currentTarget.style.borderColor=C.border;e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)";}}>{children}</button>);}
+
+function WeekPicker({weekDays,weekStart,setWeekStart,selectedDate,onSelect,showHolidays}){return(<><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}><button onClick={()=>{const d=new Date(weekStart);d.setDate(d.getDate()-7);const t=new Date();t.setHours(0,0,0,0);if(d>=t)setWeekStart(d);}} style={navBtnStyle}>‹</button><span style={{fontSize:12,letterSpacing:2,color:C.textSoft,textTransform:"uppercase"}}>{MONTH_NAMES_PL[weekDays[0].getMonth()]} {weekDays[0].getFullYear()}</span><button onClick={()=>{const d=new Date(weekStart);d.setDate(d.getDate()+7);setWeekStart(d);}} style={navBtnStyle}>›</button></div><div style={{display:"grid",gridTemplateColumns:"repeat(7, 1fr)",gap:6}}>{weekDays.map((day,i)=>{const today=new Date();today.setHours(0,0,0,0);const isPast=day<today,isSel=selectedDate&&day.toDateString()===selectedDate.toDateString(),holiday=showHolidays?isHoliday(day):null,isHol=!!holiday,isSun=day.getDay()===0,isOff=isPast||isSun;return(<button key={i} disabled={isOff} onClick={()=>{if(!isOff)onSelect(day);}} title={isHol?holiday.name:isSun?"Niedziela — nieczynne":undefined} style={{padding:"12px 2px",borderRadius:8,background:isSun?(isPast?"#f0ece5":C.sundayBg):isHol?C.holidayBg:isSel?C.accentMid:isPast?"#f0ece5":C.card,border:isHol&&isSel?`2px solid ${C.holiday}`:isHol?`1px solid ${C.holidayBorder}`:isSun?`1px solid ${C.sundayBorder}`:isSel?`1px solid ${C.accent}`:`1px solid ${C.border}`,color:isSun?C.sunday:isHol?C.holiday:isPast?C.textMuted:isSel?C.accent:C.text,cursor:isOff?"not-allowed":"pointer",fontFamily:"inherit",transition:"all 0.2s ease",textAlign:"center",position:"relative",opacity:isSun&&isPast?0.4:isSun?0.55:1}} onMouseOver={e=>{if(!isOff)e.currentTarget.style.borderColor=isHol?C.holiday:C.accent;}} onMouseOut={e=>{if(!isOff&&!isSel)e.currentTarget.style.borderColor=isHol?C.holidayBorder:C.border;}}><div style={{fontSize:9,color:isSun?C.sunday:isHol?C.holiday:C.textMuted,letterSpacing:1,marginBottom:4}}>{DAY_NAMES_PL[day.getDay()]}</div><div style={{fontSize:18,fontFamily:"'Georgia', serif"}}>{day.getDate()}</div>{isHol&&!isSun&&<div style={{width:7,height:7,borderRadius:"50%",background:C.holiday,margin:"3px auto 0"}}/>}{isSun&&!isPast&&<div style={{fontSize:6,color:C.sunday,letterSpacing:0.3,marginTop:2,textTransform:"uppercase",lineHeight:1}}>nieczynne</div>}</button>);})}</div></>);}
+
+function SlotGrid({slots,selectedSlot,onSelect,isOutside}){
+  if(!slots.length)return<div style={{textAlign:"center",padding:40,color:C.textMuted,fontSize:13,letterSpacing:1}}>Brak dostępnych terminów</div>;
+  const std=slots.filter(s=>!isOutside||!isOutside(s)),out=isOutside?slots.filter(s=>isOutside(s)):[];
+  const renderSlot=(slot,isO)=>{const isSel=selectedSlot&&selectedSlot.label===slot.label;return(<button key={slot.label} onClick={()=>onSelect(slot)} style={{padding:"14px 4px",borderRadius:6,background:isSel?C.accentMid:isO?"rgba(0,0,0,0.02)":C.card,border:isSel?`1px solid ${C.accent}`:`1px solid ${isO?"rgba(0,0,0,0.08)":C.border}`,color:isSel?C.accent:isO?C.textMuted:C.text,cursor:"pointer",fontFamily:"'Courier New', monospace",fontSize:14,transition:"all 0.2s ease",letterSpacing:1,opacity:isO&&!isSel?0.6:1}} onMouseOver={e=>{e.currentTarget.style.borderColor=C.accent;e.currentTarget.style.background=C.accentLight;e.currentTarget.style.opacity=1;}} onMouseOut={e=>{if(!isSel){e.currentTarget.style.borderColor=isO?"rgba(0,0,0,0.08)":C.border;e.currentTarget.style.background=isO?"rgba(0,0,0,0.02)":C.card;e.currentTarget.style.opacity=isO?0.6:1;}}}>{slot.label}</button>);};
+  return(<div>{std.length>0&&<div style={{display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:8}}>{std.map(s=>renderSlot(s,false))}</div>}{out.length>0&&<><div style={{display:"flex",alignItems:"center",gap:10,margin:"16px 0 10px"}}><div style={{flex:1,height:1,background:C.border}}/><span style={{fontSize:9,letterSpacing:2,color:C.textMuted,textTransform:"uppercase",whiteSpace:"nowrap"}}>Poza zakresem 9–18</span><div style={{flex:1,height:1,background:C.border}}/></div><div style={{display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:8}}>{out.map(s=>renderSlot(s,true))}</div></>}</div>);
+}
+
+class ErrorBoundary extends React.Component {
+  constructor(props){super(props);this.state={error:null,info:null};}
+  static getDerivedStateFromError(error){return{error};}
+  componentDidCatch(error,info){this.setState({info});console.error("ErrorBoundary:",error,info);}
+  render(){
+    if(this.state.error)return React.createElement("div",{style:{padding:20,margin:20,background:"#fde",border:"2px solid #c45",borderRadius:8,fontFamily:"'Courier New',monospace",fontSize:12,color:"#900"}},
+      React.createElement("h2",{style:{marginBottom:8}},"❌ Aplikacja crashnęła"),
+      React.createElement("pre",{style:{whiteSpace:"pre-wrap",wordBreak:"break-all",marginBottom:8}},String(this.state.error)),
+      React.createElement("pre",{style:{whiteSpace:"pre-wrap",wordBreak:"break-all",fontSize:10,color:"#666"}},this.state.info?.componentStack?.substring(0,500)||""),
+      React.createElement("button",{onClick:()=>this.setState({error:null,info:null}),style:{marginTop:8,padding:"8px 16px",background:"#fff",border:"1px solid #c45",borderRadius:4,cursor:"pointer"}},"Spróbuj ponownie")
+    );
+    return this.props.children;
+  }
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(ErrorBoundary,null,React.createElement(BarberBookingApp)));
+</script>
+</body>
+</html>
